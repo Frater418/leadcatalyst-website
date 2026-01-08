@@ -1,14 +1,17 @@
 /**
  * Hero Section - LeadCatalyst
- * 
+ *
  * Full-viewport hero with abstract background image
- * Asymmetric layout with text left, floating card right
+ * Asymmetric layout with text left, live activity feed right
  * Gold accent buttons, serif italic headline emphasis
+ * Opens GHL Modal on CTA click
  */
 
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, TrendingUp, Users } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, Shield, TrendingUp, Users, Scale, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import type { ModalMode } from "@/components/ui/ghl-modal";
 
 const stats = [
   { icon: Shield, value: "100%", label: "Verified Leads" },
@@ -16,14 +19,27 @@ const stats = [
   { icon: Users, value: "500+", label: "Clients Served" },
 ];
 
-export function HeroSection() {
-  const scrollToContact = () => {
-    const element = document.querySelector("#contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+// Live activity feed data - anonymized for authenticity
+const activityData = [
+  { type: "legal", action: "Lead delivered", desc: "Personal Injury Case", location: "Miami, FL" },
+  { type: "insurance", action: "Lead qualified", desc: "Term Life Policy", location: "Austin, TX" },
+  { type: "legal", action: "Lead verified", desc: "Auto Accident Claim", location: "Chicago, IL" },
+  { type: "insurance", action: "Lead delivered", desc: "Whole Life Inquiry", location: "Denver, CO" },
+  { type: "legal", action: "Lead delivered", desc: "Slip & Fall Case", location: "Los Angeles, CA" },
+  { type: "insurance", action: "Lead qualified", desc: "Family Coverage", location: "Phoenix, AZ" },
+  { type: "legal", action: "Lead verified", desc: "Workplace Injury", location: "New York, NY" },
+  { type: "insurance", action: "Lead delivered", desc: "Senior Life Plan", location: "Seattle, WA" },
+  { type: "legal", action: "Lead qualified", desc: "Medical Malpractice", location: "Houston, TX" },
+  { type: "insurance", action: "Lead verified", desc: "Universal Life", location: "Atlanta, GA" },
+  { type: "legal", action: "Lead delivered", desc: "Product Liability", location: "Boston, MA" },
+  { type: "insurance", action: "Lead delivered", desc: "Final Expense", location: "San Diego, CA" },
+];
 
+interface HeroSectionProps {
+  onOpenModal: (mode: ModalMode) => void;
+}
+
+export function HeroSection({ onOpenModal }: HeroSectionProps) {
   const scrollToServices = () => {
     const element = document.querySelector("#services");
     if (element) {
@@ -36,9 +52,11 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-abstract.png"
+          src="/images/hero-abstract.webp"
           alt=""
           className="w-full h-full object-cover opacity-60"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -50,7 +68,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F5A623]/10 border border-[#F5A623]/30 mb-6">
@@ -61,7 +79,7 @@ export function HeroSection() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               The Growth{" "}
               <span className="font-display italic text-[#F5A623]">Engine</span>
               <br />
@@ -69,7 +87,7 @@ export function HeroSection() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
               Strategic lead generation and performance marketing that drives
               measurable results. We help businesses scale through data-driven
               digital campaigns and qualified lead acquisition.
@@ -78,11 +96,13 @@ export function HeroSection() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button
-                onClick={scrollToContact}
+                onClick={() => onOpenModal("form")}
+                variant="amber"
                 size="lg"
-                className="bg-[#F5A623] hover:bg-[#D4880F] text-background font-semibold px-8 h-12 text-base group"
+                className="px-8 h-12 text-base shadow-gold group"
               >
-                Get Started
+                <Shield className="w-5 h-5 mr-2" />
+                Get Qualified Leads
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
@@ -96,13 +116,13 @@ export function HeroSection() {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap gap-6 md:gap-10">
+            <div className="flex flex-wrap gap-6 md:gap-8">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
                   className="flex items-center gap-3"
                 >
                   <div className="w-10 h-10 rounded-lg bg-[#F5A623]/10 flex items-center justify-center">
@@ -117,73 +137,14 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Right Content - Floating Card */}
+          {/* Right Content - Live Activity Feed */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="hidden lg:block"
           >
-            <div className="relative">
-              {/* Main Card */}
-              <div className="bg-gradient-card rounded-2xl border border-border p-8 shadow-2xl">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#22C55E]" />
-                    <span className="text-sm font-medium text-muted-foreground">
-                      Live Performance
-                    </span>
-                  </div>
-                  <span className="text-xs px-3 py-1 rounded-full bg-[#F5A623]/10 text-[#F5A623] font-medium">
-                    REAL-TIME
-                  </span>
-                </div>
-
-                {/* Score Display */}
-                <div className="text-center mb-8">
-                  <div className="inline-flex items-center justify-center w-28 h-28 rounded-full border-4 border-[#F5A623] mb-4">
-                    <span className="text-4xl font-bold text-[#F5A623]">96</span>
-                  </div>
-                  <div className="text-lg font-semibold text-foreground">
-                    Lead Quality Score
-                  </div>
-                  <div className="text-sm text-[#22C55E] flex items-center justify-center gap-1 mt-1">
-                    <TrendingUp className="w-4 h-4" />
-                    High Conversion Potential
-                  </div>
-                </div>
-
-                {/* Metrics */}
-                <div className="space-y-4">
-                  {[
-                    { label: "Qualification Rate", value: "94%", color: "#22C55E" },
-                    { label: "Response Time", value: "<2h", color: "#F5A623" },
-                    { label: "Client Satisfaction", value: "4.9/5", color: "#22C55E" },
-                  ].map((metric) => (
-                    <div
-                      key={metric.label}
-                      className="flex items-center justify-between py-3 border-b border-border last:border-0"
-                    >
-                      <span className="text-sm text-muted-foreground">{metric.label}</span>
-                      <span
-                        className="text-sm font-semibold"
-                        style={{ color: metric.color }}
-                      >
-                        {metric.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Floating Badge */}
-              <div className="absolute -top-4 -right-4 bg-[#F5A623] text-background px-4 py-2 rounded-lg font-semibold text-sm shadow-lg">
-                Exclusive Leads
-              </div>
-
-              {/* Glow Effect */}
-              <div className="absolute -inset-4 bg-[#F5A623]/5 rounded-3xl blur-2xl -z-10" />
-            </div>
+            <LiveActivityFeed />
           </motion.div>
         </div>
       </div>
@@ -205,5 +166,200 @@ export function HeroSection() {
         </div>
       </motion.div>
     </section>
+  );
+}
+
+// Live Activity Feed Component - Items appear one by one at the top
+function LiveActivityFeed() {
+  const [items, setItems] = useState<Array<{ id: number; type: string; action: string; desc: string; location: string; time: string }>>([]);
+  const [dataIndex, setDataIndex] = useState(0);
+  const [itemCounter, setItemCounter] = useState(0);
+
+  // Initialize with first few items
+  useEffect(() => {
+    const initialItems = [];
+    for (let i = 0; i < 5; i++) {
+      initialItems.push({
+        ...activityData[i],
+        id: i,
+        time: getTimeAgo(i),
+      });
+    }
+    setItems(initialItems);
+    setDataIndex(5);
+    setItemCounter(5);
+  }, []);
+
+  // Add new item at random intervals (2-6 seconds) for realism
+  useEffect(() => {
+    const scheduleNextItem = () => {
+      const randomDelay = 2000 + Math.random() * 4000; // 2-6 seconds
+      return setTimeout(() => {
+        setItems((prev) => {
+          const newItem = {
+            ...activityData[dataIndex % activityData.length],
+            id: itemCounter,
+            time: "Just now",
+          };
+
+          // Update times for existing items
+          const updatedItems = prev.map((item, idx) => ({
+            ...item,
+            time: getTimeAgo(idx + 1),
+          }));
+
+          // Add new item at top, keep exactly 5 items
+          return [newItem, ...updatedItems].slice(0, 5);
+        });
+
+        setDataIndex((prev) => (prev + 1) % activityData.length);
+        setItemCounter((prev) => prev + 1);
+      }, randomDelay);
+    };
+
+    const timeoutId = scheduleNextItem();
+    return () => clearTimeout(timeoutId);
+  }, [dataIndex, itemCounter]);
+
+  const getTimeAgo = (index: number): string => {
+    const times = ["Just now", "8s ago", "23s ago", "41s ago", "1m ago", "2m ago"];
+    return times[Math.min(index, times.length - 1)];
+  };
+
+  const getIcon = (type: string) => {
+    return type === "legal" ? Scale : ShieldCheck;
+  };
+
+  const getActionColor = (action: string) => {
+    if (action.includes("delivered")) return "#22C55E";
+    if (action.includes("qualified")) return "#F5A623";
+    return "#3B82F6";
+  };
+
+  return (
+    <div className="relative">
+      {/* Main Card */}
+      <div className="bg-gradient-card rounded-2xl border border-border p-6 shadow-2xl overflow-hidden">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-5">
+          <div className="flex items-center gap-2">
+            <div className="relative">
+              <div className="w-3 h-3 rounded-full bg-[#22C55E]" />
+              <div className="absolute inset-0 w-3 h-3 rounded-full bg-[#22C55E] animate-ping" />
+            </div>
+            <span className="text-sm font-medium text-foreground">
+              Live Activity
+            </span>
+          </div>
+          <span className="text-xs px-3 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E] font-medium">
+            LIVE
+          </span>
+        </div>
+
+        {/* Activity List - Fixed height container for stability */}
+        <div className="h-[280px] sm:h-[310px] md:h-[340px] overflow-hidden mb-5">
+          <div className="space-y-2">
+            <AnimatePresence initial={false} mode="popLayout">
+              {items.map((item, index) => {
+                const Icon = getIcon(item.type);
+                const isNew = index === 0;
+                return (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{
+                      opacity: 1 - index * 0.1,
+                      x: 0,
+                    }}
+                    exit={{ opacity: 0, x: 30 }}
+                    transition={{
+                      duration: 0.35,
+                      ease: "easeOut",
+                      layout: { duration: 0.3 }
+                    }}
+                    className="flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-border/50"
+                    style={{
+                      borderColor: isNew ? "rgba(34, 197, 94, 0.3)" : undefined,
+                      backgroundColor: isNew ? "rgba(34, 197, 94, 0.05)" : undefined,
+                    }}
+                  >
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+                      style={{ backgroundColor: `${item.type === "legal" ? "#F5A623" : "#3B82F6"}15` }}
+                    >
+                      <Icon
+                        className="w-4 h-4"
+                        style={{ color: item.type === "legal" ? "#F5A623" : "#3B82F6" }}
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="text-xs font-medium px-1.5 py-0.5 rounded"
+                          style={{
+                            backgroundColor: `${getActionColor(item.action)}15`,
+                            color: getActionColor(item.action)
+                          }}
+                        >
+                          {item.action}
+                        </span>
+                        {isNew && (
+                          <motion.span
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            className="text-[10px] px-1.5 py-0.5 rounded bg-[#22C55E]/20 text-[#22C55E] font-medium"
+                          >
+                            NEW
+                          </motion.span>
+                        )}
+                      </div>
+                      <p className="text-sm text-foreground font-medium truncate mt-0.5">
+                        {item.desc}
+                      </p>
+                      <p className="text-xs text-muted-foreground">{item.location}</p>
+                    </div>
+                    <div className="text-xs text-muted-foreground shrink-0 tabular-nums">
+                      {item.time}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* Stats Footer */}
+        <div className="pt-4 border-t border-border">
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <div className="text-lg font-bold text-[#22C55E]">847</div>
+              <div className="text-xs text-muted-foreground">Today</div>
+            </div>
+            <div>
+              <div className="text-lg font-bold text-[#F5A623]">98.2%</div>
+              <div className="text-xs text-muted-foreground">Verified</div>
+            </div>
+            <div>
+              <div className="text-lg font-bold text-foreground">&lt;30s</div>
+              <div className="text-xs text-muted-foreground">Delivery</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating Badge */}
+      <motion.div
+        className="absolute -top-3 -right-3 bg-[#22C55E] text-white px-3 py-1.5 rounded-lg font-semibold text-xs shadow-lg flex items-center gap-1.5"
+        animate={{ scale: [1, 1.05, 1] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <CheckCircle2 className="w-3.5 h-3.5" />
+        Verified
+      </motion.div>
+
+      {/* Glow Effect */}
+      <div className="absolute -inset-4 bg-[#22C55E]/5 rounded-3xl blur-2xl -z-10" />
+    </div>
   );
 }

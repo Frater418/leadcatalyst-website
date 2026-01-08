@@ -1,0 +1,9 @@
+# robots.txt for LeadCatalyst
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://leadcatalyst.com/sitemap.xml
+
+# Disallow admin/internal paths (if any)
+Disallow: /api/

@@ -175,6 +175,14 @@
     min-width: 0;
   }
 
+  /* Extra small devices (<360px) - tighter padding */
+  @media (max-width: 359px) {
+    .container {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  }
+
   @media (min-width: 640px) {
     .container {
       padding-left: 1.5rem;
@@ -237,12 +245,96 @@
   .font-display {
     font-family: var(--font-display);
   }
-  
+
   .font-sans {
     font-family: var(--font-sans);
   }
-  
+
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Premium Shadow Effects */
+  .shadow-gold {
+    box-shadow:
+      0 0 0 1px oklch(0.78 0.15 75 / 0.2),
+      0 4px 24px 0 oklch(0.78 0.15 75 / 0.25),
+      0 12px 48px -8px oklch(0.78 0.15 75 / 0.3);
+  }
+
+  .shadow-elevated {
+    box-shadow:
+      0 1px 2px 0 rgb(0 0 0 / 0.03),
+      0 4px 8px -2px rgb(0 0 0 / 0.06),
+      0 12px 24px -4px rgb(0 0 0 / 0.08);
+  }
+
+  /* Glassmorphism for dark backgrounds */
+  .glass-dark {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+
+  .glass-dark-hover {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-white/15 transition-all duration-300;
+  }
+
+  /* Hero neon background */
+  .bg-hero-neon {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.78 0.15 75 / 0.15), transparent 50%),
+      radial-gradient(ellipse 60% 40% at 50% 0%, oklch(0.78 0.15 75 / 0.08), transparent 60%),
+      linear-gradient(180deg, oklch(0.10 0.015 250) 0%, oklch(0.14 0.015 250) 100%);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply hover:-translate-y-1 hover:shadow-xl transition-all duration-300;
+  }
+
+  /* Safe area for iOS devices */
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Animation utilities */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px oklch(0.78 0.15 75 / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px oklch(0.78 0.15 75 / 0.5);
+    }
   }
 }

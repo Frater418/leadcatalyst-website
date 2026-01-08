@@ -42,8 +42,8 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (800) 123-4567",
-    href: "tel:+18001234567",
+    value: "+1 (754) 209-2098",
+    href: "tel:+17542092098",
   },
   {
     icon: MapPin,
@@ -82,6 +82,18 @@ export function ContactSection() {
     <section id="contact" className="py-24 md:py-32 bg-gradient-dark relative overflow-hidden">
       {/* Diagonal Top Edge */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-background" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0%)" }} />
+
+      {/* Floating Orbs */}
+      <motion.div
+        className="absolute top-1/4 right-10 w-80 h-80 bg-[#F5A623]/5 rounded-full blur-3xl"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-1/3 left-10 w-64 h-64 bg-[#3B82F6]/5 rounded-full blur-3xl"
+        animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
       
       <div className="container relative z-10" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-16">
@@ -110,11 +122,21 @@ export function ContactSection() {
 
             {/* Contact Info */}
             <div className="space-y-4 mb-8">
-              {contactInfo.map((item) => (
-                <div key={item.label} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#F5A623]/10 flex items-center justify-center">
+              {contactInfo.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  className="flex items-center gap-4 group"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.08 }}
+                  whileHover={{ x: 4 }}
+                >
+                  <motion.div
+                    className="w-12 h-12 rounded-lg bg-[#F5A623]/10 flex items-center justify-center group-hover:bg-[#F5A623]/20 transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                  >
                     <item.icon className="w-5 h-5 text-[#F5A623]" />
-                  </div>
+                  </motion.div>
                   <div>
                     <div className="text-sm text-muted-foreground">{item.label}</div>
                     {item.href ? (
@@ -128,7 +150,7 @@ export function ContactSection() {
                       <span className="text-foreground font-medium">{item.value}</span>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -137,22 +159,13 @@ export function ContactSection() {
               <p className="text-sm text-muted-foreground mb-4">Connect with our team:</p>
               <div className="flex gap-4">
                 <a
-                  href="https://www.linkedin.com/in/raphaelrechberger/"
+                  href="https://www.linkedin.com/in/auranex/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0A66C2]/10 text-[#0A66C2] hover:bg-[#0A66C2]/20 transition-colors"
                 >
                   <Linkedin className="w-5 h-5" />
-                  <span className="text-sm font-medium">Raphael Rechberger</span>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/glenginzel/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0A66C2]/10 text-[#0A66C2] hover:bg-[#0A66C2]/20 transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                  <span className="text-sm font-medium">Glen Ginzel</span>
+                  <span className="text-sm font-medium">Connect on LinkedIn</span>
                 </a>
               </div>
             </div>
@@ -325,7 +338,7 @@ export function ContactSection() {
 
                   <p className="text-xs text-muted-foreground text-center">
                     By submitting this form, you agree to our{" "}
-                    <a href="#" className="text-[#F5A623] hover:underline">
+                    <a href="/privacy" className="text-[#F5A623] hover:underline">
                       Privacy Policy
                     </a>
                     .

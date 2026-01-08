@@ -1,35 +1,44 @@
 /**
  * About Section - LeadCatalyst
- * 
- * Company introduction with mission and values
- * Two-column layout with text and visual element
+ *
+ * Company introduction - authentic storytelling approach
+ * Focus on concrete expertise rather than generic values
  */
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Target, Lightbulb, Users, BarChart3 } from "lucide-react";
+import { Scale, ShieldCheck, Building2, TrendingUp } from "lucide-react";
 
-const values = [
+// Concrete expertise areas with real focus
+const expertise = [
   {
-    icon: Target,
-    title: "Results-Driven",
-    description: "Every strategy is designed to deliver measurable outcomes and ROI.",
+    icon: Scale,
+    vertical: "Legal / MVA",
+    focus: "Personal injury & auto accident leads with medical treatment verification",
+    link: "https://legal.leadcatalyst.com",
+    active: true,
   },
   {
-    icon: Lightbulb,
-    title: "Innovation First",
-    description: "We leverage cutting-edge technology and data-driven insights.",
+    icon: ShieldCheck,
+    vertical: "Life Insurance",
+    focus: "Pre-qualified leads filtered for underwriting fit and purchase intent",
+    link: "https://insurance.leadcatalyst.com",
+    active: true,
   },
   {
-    icon: Users,
-    title: "Partnership Approach",
-    description: "We work as an extension of your team, aligned with your goals.",
+    icon: Building2,
+    vertical: "Financial Services",
+    focus: "Lending, credit, and wealth management lead acquisition",
+    link: null,
+    active: false,
   },
   {
-    icon: BarChart3,
-    title: "Transparent Reporting",
-    description: "Full visibility into campaign performance and lead quality.",
+    icon: TrendingUp,
+    vertical: "More Verticals",
+    focus: "Real estate, B2B services, and custom solutions",
+    link: null,
+    active: false,
   },
 ];
 
@@ -41,6 +50,18 @@ export function AboutSection() {
     <section id="about" className="py-24 md:py-32 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#F5A623]/5 to-transparent -z-10" />
+
+      {/* Floating Orbs */}
+      <motion.div
+        className="absolute top-40 left-10 w-72 h-72 bg-[#F5A623]/5 rounded-full blur-3xl"
+        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-40 right-10 w-56 h-56 bg-[#22C55E]/5 rounded-full blur-3xl"
+        animate={{ x: [0, -20, 0], y: [0, 30, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      />
       
       <div className="container" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -75,59 +96,97 @@ export function AboutSection() {
             </p>
 
             {/* Mission Statement */}
-            <div className="p-6 rounded-xl bg-gradient-card border border-border">
-              <h3 className="text-lg font-semibold text-foreground mb-2">Our Mission</h3>
-              <p className="text-muted-foreground italic">
-                "To empower businesses with qualified leads and strategic marketing 
+            <motion.div
+              className="p-6 rounded-xl bg-gradient-card border border-border hover:border-[#F5A623]/30 transition-all duration-300 relative overflow-hidden group"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-[#F5A623]/5 opacity-0 group-hover:opacity-100 transition-opacity"
+              />
+              <h3 className="text-lg font-semibold text-foreground mb-2 relative z-10">Our Mission</h3>
+              <p className="text-muted-foreground italic relative z-10">
+                "To empower businesses with qualified leads and strategic marketing
                 solutions that drive predictable, scalable growth."
               </p>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Right Content - Values Grid */}
+          {/* Right Content - Expertise Areas */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="grid sm:grid-cols-2 gap-6">
-              {values.map((value, index) => (
+            <h3 className="text-lg font-semibold text-foreground mb-4">
+              Our Verticals
+            </h3>
+            <div className="space-y-3">
+              {expertise.map((item, index) => (
                 <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="p-6 rounded-xl bg-gradient-card border border-border hover:border-[#F5A623]/30 transition-colors group"
+                  key={item.vertical}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.08 }}
                 >
-                  <div className="w-12 h-12 rounded-lg bg-[#F5A623]/10 flex items-center justify-center mb-4 group-hover:bg-[#F5A623]/20 transition-colors">
-                    <value.icon className="w-6 h-6 text-[#F5A623]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {value.description}
-                  </p>
+                  {item.active && item.link ? (
+                    <motion.a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-4 p-4 rounded-xl bg-gradient-card border border-[#F5A623]/30 hover:border-[#F5A623] transition-all group relative overflow-hidden"
+                      whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                    >
+                      {/* Hover Glow */}
+                      <div className="absolute inset-0 bg-[#F5A623]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <motion.div
+                        className="w-10 h-10 rounded-lg bg-[#F5A623]/20 flex items-center justify-center shrink-0 group-hover:bg-[#F5A623]/30 transition-colors relative z-10"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <item.icon className="w-5 h-5 text-[#F5A623]" />
+                      </motion.div>
+                      <div className="flex-1 relative z-10">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-semibold text-foreground group-hover:text-[#F5A623] transition-colors">{item.vertical}</span>
+                          <motion.span
+                            className="text-xs px-2 py-0.5 rounded-full bg-[#22C55E]/10 text-[#22C55E] font-medium"
+                            animate={{ scale: [1, 1.05, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          >
+                            Active
+                          </motion.span>
+                        </div>
+                        <p className="text-sm text-muted-foreground">{item.focus}</p>
+                      </div>
+                      <svg className="w-5 h-5 text-[#F5A623] shrink-0 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </motion.a>
+                  ) : (
+                    <div className="flex items-start gap-4 p-4 rounded-xl bg-card/50 border border-border">
+                      <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center shrink-0">
+                        <item.icon className="w-5 h-5 text-muted-foreground" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-semibold text-muted-foreground">{item.vertical}</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium">
+                            Coming Soon
+                          </span>
+                        </div>
+                        <p className="text-sm text-muted-foreground/70">{item.focus}</p>
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>
 
-            {/* Stats Row */}
-            <div className="mt-8 p-6 rounded-xl bg-[#F5A623]/5 border border-[#F5A623]/20">
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <div className="text-2xl md:text-3xl font-bold text-[#F5A623]">10+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
-                </div>
-                <div>
-                  <div className="text-2xl md:text-3xl font-bold text-[#F5A623]">5</div>
-                  <div className="text-sm text-muted-foreground">Industry Verticals</div>
-                </div>
-                <div>
-                  <div className="text-2xl md:text-3xl font-bold text-[#F5A623]">$50M+</div>
-                  <div className="text-sm text-muted-foreground">Revenue Generated</div>
-                </div>
-              </div>
+            {/* Holding Company Note */}
+            <div className="mt-6 p-4 rounded-xl bg-background border border-border">
+              <p className="text-sm text-muted-foreground">
+                <span className="text-foreground font-medium">LeadCatalyst</span> operates as a holding company with dedicated platforms for each vertical, ensuring specialized expertise and focused service delivery.
+              </p>
             </div>
           </motion.div>
         </div>

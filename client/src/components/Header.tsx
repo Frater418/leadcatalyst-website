@@ -1,14 +1,16 @@
 /**
  * Header Component - LeadCatalyst
- * 
+ *
  * Sticky navigation with transparent-to-solid background on scroll
  * Gold accent on logo, clean navigation links
+ * Opens GHL Modal on CTA click
  */
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import type { ModalMode } from "@/components/ui/ghl-modal";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -18,7 +20,11 @@ const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-export function Header() {
+interface HeaderProps {
+  onOpenModal?: (mode: ModalMode) => void;
+}
+
+export function Header({ onOpenModal }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -80,25 +86,26 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="tel:+1234567890"
+            <button
+              onClick={() => onOpenModal?.("form")}
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              <Phone className="w-4 h-4" />
+              <MessageSquare className="w-4 h-4" />
               <span>Contact Us</span>
-            </a>
+            </button>
             <Button
-              onClick={() => scrollToSection("#contact")}
-              className="bg-[#F5A623] hover:bg-[#D4880F] text-background font-semibold px-6"
+              onClick={() => onOpenModal?.("form")}
+              variant="amber"
+              className="px-6"
             >
               Get Started
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - min 44px touch target */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground"
+            className="lg:hidden p-3 -mr-2 text-foreground hover:bg-foreground/5 rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -126,8 +133,12 @@ export function Header() {
                 </button>
               ))}
               <Button
-                onClick={() => scrollToSection("#contact")}
-                className="mt-4 bg-[#F5A623] hover:bg-[#D4880F] text-background font-semibold w-full"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  onOpenModal?.("form");
+                }}
+                variant="amber"
+                className="mt-4 w-full"
               >
                 Get Started
               </Button>

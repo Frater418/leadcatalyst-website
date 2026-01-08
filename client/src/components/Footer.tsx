@@ -16,12 +16,13 @@ const footerLinks = {
     { label: "Contact", href: "#contact" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-    { label: "Cookie Policy", href: "#" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Cookie Policy", href: "/cookies" },
   ],
   verticals: [
     { label: "Legal / MVA", href: "https://legal.leadcatalyst.com", external: true },
+    { label: "Life Insurance", href: "https://insurance.leadcatalyst.com", external: true },
   ],
 };
 
@@ -70,14 +71,14 @@ export function Footer() {
                 <Mail className="w-5 h-5" />
               </a>
               <a
-                href="tel:+18001234567"
+                href="tel:+17542092098"
                 className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-[#F5A623] hover:bg-[#F5A623]/10 transition-colors"
                 aria-label="Phone"
               >
                 <Phone className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/company/leadcatalyst"
+                href="https://www.linkedin.com/in/auranex/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-[#F5A623] hover:bg-[#F5A623]/10 transition-colors"
@@ -166,7 +167,7 @@ export function Footer() {
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span>A</span>
             <a
-              href="https://auranex.com"
+              href="https://auranex.ai"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#F5A623] hover:underline"

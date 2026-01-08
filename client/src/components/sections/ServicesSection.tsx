@@ -16,21 +16,21 @@ const services = [
     description:
       "Qualified lead acquisition through multi-channel campaigns. We deliver verified, exclusive leads that convert into real business opportunities.",
     features: ["Exclusive Leads", "Multi-Channel Acquisition", "Quality Verification", "CRM Integration"],
-    image: "/images/services-leadgen.png",
+    image: "/images/services-leadgen.webp",
   },
   {
     title: "Performance Marketing",
     description:
       "ROI-focused paid advertising management across all major platforms. Data-driven optimization ensures maximum return on your marketing investment.",
     features: ["Paid Media Management", "A/B Testing", "Conversion Optimization", "Real-Time Analytics"],
-    image: "/images/services-performance.png",
+    image: "/images/services-performance.webp",
   },
   {
     title: "Digital Strategy",
     description:
       "Comprehensive market analysis and campaign planning. We develop customized growth strategies aligned with your business objectives.",
     features: ["Market Analysis", "Campaign Planning", "Competitive Research", "Growth Roadmaps"],
-    image: "/images/services-strategy.png",
+    image: "/images/services-strategy.webp",
   },
 ];
 
@@ -46,9 +46,21 @@ export function ServicesSection() {
   };
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-gradient-dark relative">
+    <section id="services" className="py-24 md:py-32 bg-gradient-dark relative overflow-hidden">
       {/* Diagonal Top Edge */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-background" style={{ clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 100%)" }} />
+
+      {/* Floating Orbs */}
+      <motion.div
+        className="absolute top-1/3 right-0 w-96 h-96 bg-[#F5A623]/5 rounded-full blur-3xl"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 left-0 w-80 h-80 bg-[#3B82F6]/5 rounded-full blur-3xl"
+        animate={{ scale: [1.15, 1, 1.15], opacity: [0.2, 0.35, 0.2] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
       
       <div className="container relative z-10" ref={ref}>
         {/* Section Header */}
@@ -78,23 +90,27 @@ export function ServicesSection() {
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 * index }}
+              transition={{ duration: 0.6, delay: 0.08 * index }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group"
             >
-              <div className="h-full rounded-2xl bg-gradient-card border border-border hover:border-[#F5A623]/30 transition-all duration-300 overflow-hidden">
+              <div className="h-full rounded-xl bg-gradient-card border border-border hover:border-[#F5A623]/30 hover:shadow-xl hover:shadow-[#F5A623]/5 transition-all duration-300 overflow-hidden">
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-[#F5A623]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-3">
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-[#F5A623] transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
@@ -103,24 +119,29 @@ export function ServicesSection() {
 
                   {/* Features */}
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {service.features.map((feature) => (
-                      <span
+                    {service.features.map((feature, featureIndex) => (
+                      <motion.span
                         key={feature}
-                        className="text-xs px-3 py-1 rounded-full bg-[#F5A623]/10 text-[#F5A623] border border-[#F5A623]/20"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.3, delay: 0.2 + index * 0.1 + featureIndex * 0.05 }}
+                        className="text-xs px-3 py-1 rounded-full bg-[#F5A623]/10 text-[#F5A623] border border-[#F5A623]/20 hover:bg-[#F5A623]/20 transition-colors"
                       >
                         {feature}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
 
                   {/* CTA */}
-                  <button
+                  <motion.button
                     onClick={scrollToContact}
                     className="flex items-center gap-2 text-sm font-medium text-[#F5A623] hover:text-[#D4880F] transition-colors group/btn"
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.2 }}
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
+                  </motion.button>
                 </div>
               </div>
             </motion.div>
