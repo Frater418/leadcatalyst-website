@@ -1,25 +1,39 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
-
 /**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+ * LeadCatalyst Homepage
+ * 
+ * Design Philosophy: "Refined Catalyst"
+ * - Dark charcoal background with warm gold accents
+ * - Playfair Display serif for headlines (italic emphasis)
+ * - Professional, trustworthy B2B aesthetic
+ * - Conversion-focused layout with strategic CTAs
  */
-export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
 
+import { Header } from "@/components/Header";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { ServicesSection } from "@/components/sections/ServicesSection";
+import { IndustriesSection } from "@/components/sections/IndustriesSection";
+import { ApproachSection } from "@/components/sections/ApproachSection";
+import { WhyUsSection } from "@/components/sections/WhyUsSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { Footer } from "@/components/Footer";
+import { StickyCTA } from "@/components/StickyCTA";
+
+export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
       <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <IndustriesSection />
+        <ApproachSection />
+        <WhyUsSection />
+        <ContactSection />
       </main>
+      <Footer />
+      <StickyCTA />
     </div>
   );
 }
