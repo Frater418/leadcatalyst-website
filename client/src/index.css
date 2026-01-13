@@ -56,14 +56,18 @@
   /* LeadCatalyst Custom Colors */
   --color-gold: oklch(0.78 0.15 75);
   --color-gold-light: oklch(0.85 0.12 75);
-  --color-gold-dark: oklch(0.65 0.15 75);
+  --color-gold-dark: oklch(0.60 0.14 75); /* #C4841D */
   --color-navy: oklch(0.15 0.02 250);
   --color-navy-light: oklch(0.20 0.02 250);
   --color-success: oklch(0.65 0.2 145);
-  
+
   /* Font families */
   --font-display: "Playfair Display", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Animation easing functions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 :root {
@@ -116,7 +120,7 @@
 
 /* Light theme variant (not primary, but available) */
 .light {
-  --primary: oklch(0.65 0.15 75);
+  --primary: oklch(0.60 0.14 75); /* Dark Gold #C4841D */
   --primary-foreground: oklch(0.98 0 0);
   --background: oklch(0.98 0.005 250);
   --foreground: oklch(0.15 0.02 250);
@@ -134,7 +138,7 @@
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.88 0.005 250);
   --input: oklch(0.88 0.005 250);
-  --ring: oklch(0.65 0.15 75);
+  --ring: oklch(0.60 0.14 75); /* Dark Gold #C4841D */
 }
 
 @layer base {
@@ -201,14 +205,14 @@
   /* LeadCatalyst Custom Components */
   
   .text-gradient-gold {
-    background: linear-gradient(135deg, oklch(0.85 0.12 75), oklch(0.78 0.15 75), oklch(0.65 0.15 75));
+    background: linear-gradient(135deg, oklch(0.85 0.12 75), oklch(0.78 0.15 75), oklch(0.60 0.14 75));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .bg-gradient-dark {
-    background: linear-gradient(180deg, oklch(0.12 0.015 250) 0%, oklch(0.08 0.015 250) 100%);
+    background: linear-gradient(135deg, oklch(0.12 0.015 250) 0%, oklch(0.16 0.015 250) 50%, oklch(0.18 0.015 250) 100%);
   }
   
   .bg-gradient-card {
@@ -254,6 +258,27 @@
     text-wrap: balance;
   }
 
+  /* Letter Spacing - Brand Compliance */
+  .tracking-display {
+    letter-spacing: -0.02em; /* Display headlines */
+  }
+
+  .tracking-headline {
+    letter-spacing: -0.01em; /* H1-H4 */
+  }
+
+  .tracking-button {
+    letter-spacing: 0.02em; /* Buttons */
+  }
+
+  .tracking-label {
+    letter-spacing: 0.05em; /* Labels/Badges */
+  }
+
+  .tracking-overline {
+    letter-spacing: 0.1em; /* Overlines */
+  }
+
   /* Premium Shadow Effects */
   .shadow-gold {
     box-shadow:
@@ -275,7 +300,8 @@
   }
 
   .glass-dark-hover {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-white/15 transition-all duration-300;
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-white/15 transition-all;
+    transition-duration: 300ms;
   }
 
   /* Hero neon background */
@@ -288,7 +314,8 @@
 
   /* Hover lift effect */
   .hover-lift {
-    @apply hover:-translate-y-1 hover:shadow-xl transition-all duration-300;
+    @apply hover:-translate-y-1 hover:shadow-xl transition-all;
+    transition-duration: 300ms; /* Medium - Card hovers */
   }
 
   /* Safe area for iOS devices */
@@ -298,15 +325,15 @@
 
   /* Animation utilities */
   .animate-fade-up {
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 0.6s var(--ease-out) forwards;
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.5s var(--ease-out) forwards;
   }
 
   .animate-pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
+    animation: pulseGlow 2s var(--ease-in-out) infinite;
   }
 
   @keyframes fadeUp {

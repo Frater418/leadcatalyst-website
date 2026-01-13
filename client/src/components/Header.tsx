@@ -56,7 +56,7 @@ export function Header({ onOpenModal }: HeaderProps) {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-[#F5A623] to-[#D4880F] flex items-center justify-center">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-[#F5A623] to-[#C4841D] flex items-center justify-center">
               <svg viewBox="0 0 24 24" className="w-5 h-5 md:w-6 md:h-6 text-background">
                 <path
                   fill="currentColor"

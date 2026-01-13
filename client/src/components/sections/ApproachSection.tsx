@@ -36,7 +36,7 @@ const steps = [
     description:
       "Based on our findings, we develop a customized lead generation and marketing strategy tailored to your specific objectives.",
     details: ["Channel Selection", "Budget Planning", "KPI Definition", "Timeline Creation"],
-    accent: "#D4880F", // Darker gold - planning
+    accent: "#C4841D", // Dark Gold - planning
   },
   {
     icon: Rocket,
@@ -124,7 +124,7 @@ export function ApproachSection() {
             <div
               className="h-1 rounded-full"
               style={{
-                background: "linear-gradient(to right, #6B7280, #D4880F, #F5A623, #22C55E)",
+                background: "linear-gradient(to right, #6B7280, #C4841D, #F5A623, #22C55E)",
               }}
             />
             {/* Animated Glow on Line */}

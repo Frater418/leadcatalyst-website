@@ -45,7 +45,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <a href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#F5A623] to-[#D4880F] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#F5A623] to-[#C4841D] flex items-center justify-center">
                 <svg viewBox="0 0 24 24" className="w-5 h-5 text-background">
                   <path
                     fill="currentColor"

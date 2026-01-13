@@ -20,7 +20,7 @@ const buttonVariants = cva(
           "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         // New variants matching Premium
-        amber: "bg-[#F5A623] text-background shadow-md hover:bg-[#D4880F] hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0",
+        amber: "bg-[#F5A623] text-background shadow-md hover:bg-[#C4841D] hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0",
         "amber-outline": "border-2 border-[#F5A623] text-[#F5A623] bg-transparent hover:bg-[#F5A623] hover:text-background",
         hero: "bg-[#F5A623] text-background shadow-gold hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0 text-base px-8 py-4 animate-pulse-glow",
         "hero-secondary": "bg-transparent border-2 border-border text-foreground hover:bg-muted hover:border-[#F5A623]/50 text-base px-8 py-4",

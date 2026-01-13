@@ -135,7 +135,7 @@ export function ServicesSection() {
                   {/* CTA */}
                   <motion.button
                     onClick={scrollToContact}
-                    className="flex items-center gap-2 text-sm font-medium text-[#F5A623] hover:text-[#D4880F] transition-colors group/btn"
+                    className="flex items-center gap-2 text-sm font-medium text-[#F5A623] hover:text-[#C4841D] transition-colors group/btn"
                     whileHover={{ x: 4 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -161,7 +161,7 @@ export function ServicesSection() {
           </p>
           <button
             onClick={scrollToContact}
-            className="inline-flex items-center gap-2 text-[#F5A623] hover:text-[#D4880F] font-medium transition-colors"
+            className="inline-flex items-center gap-2 text-[#F5A623] hover:text-[#C4841D] font-medium transition-colors"
           >
             Contact us to discuss your needs
             <ArrowRight className="w-4 h-4" />

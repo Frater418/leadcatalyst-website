@@ -1,8 +1,8 @@
 /**
  * Contact Section - LeadCatalyst
- * 
- * Contact form prepared for Go High Level integration
- * Form fields match GHL requirements
+ *
+ * Contact form with Go High Level webhook integration
+ * Submits directly to GHL workflow for contact creation
  */
 
 import { useState } from "react";
@@ -19,8 +19,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Mail, Phone, MapPin, Send, Linkedin, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Linkedin, CheckCircle, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
+import { GHL_WEBHOOK_URL } from "@/config/ghl";
 
 const industries = [
   { value: "legal", label: "Legal / Personal Injury" },
@@ -63,19 +64,45 @@ export function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    // In production, this would POST to Go High Level webhook
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success("Thank you! We'll be in touch within 24 hours.");
+    const payload = {
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      company: formData.get("company") as string,
+      industry: formData.get("industry") as string,
+      message: formData.get("message") as string,
+    };
 
-    // Reset form after delay
-    setTimeout(() => {
-      setIsSubmitted(false);
-      (e.target as HTMLFormElement).reset();
-    }, 3000);
+    try {
+      const response = await fetch(GHL_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      setIsSubmitted(true);
+      toast.success("Thank you! We'll be in touch within 24 hours.");
+      form.reset();
+
+      // Reset success state after delay
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      toast.error("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -192,18 +219,6 @@ export function ContactSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* 
-                    Go High Level Integration Note:
-                    This form is structured for GHL webhook integration.
-                    Field names match GHL contact fields:
-                    - firstName, lastName, email, phone, company, industry, message
-                    
-                    To integrate:
-                    1. Create a GHL webhook
-                    2. Replace the handleSubmit with a POST to your GHL webhook URL
-                    3. Map these field names to your GHL custom fields
-                  */}
-                  
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-foreground mb-2">
@@ -306,7 +321,7 @@ export function ContactSection() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#F5A623] hover:bg-[#D4880F] text-background font-semibold h-12"
+                    className="w-full bg-[#F5A623] hover:bg-[#C4841D] text-background font-semibold h-12"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
