@@ -8,31 +8,32 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "wouter";
 import { Scale, Shield, Building2, Landmark, Home, Briefcase } from "lucide-react";
 
 const industries = [
-  {
-    icon: Scale,
-    title: "Legal",
-    subtitle: "Personal Injury & MVA",
-    description: "High-value case leads for personal injury law firms with verified injury and medical treatment confirmation.",
-    link: "https://legal.leadcatalyst.com",
-    active: true,
-  },
   {
     icon: Shield,
     title: "Insurance",
     subtitle: "Life Insurance Leads",
     description: "Carrier-grade life insurance leads pre-qualified for underwriting fit, affordability, and verified purchase intent.",
-    link: "https://insurance.leadcatalyst.com",
+    link: "/insurance",
     active: true,
+  },
+  {
+    icon: Scale,
+    title: "Legal",
+    subtitle: "Personal Injury & MVA",
+    description: "High-value case leads for personal injury law firms with verified injury and medical treatment confirmation.",
+    link: "/legal",
+    active: false,
   },
   {
     icon: Landmark,
     title: "Financial Services",
     subtitle: "Lending & Credit",
     description: "Pre-qualified financial product leads for lenders, credit services, and financial advisors.",
-    link: null,
+    link: "/financial",
     active: false,
   },
   {
@@ -40,7 +41,7 @@ const industries = [
     title: "Real Estate",
     subtitle: "Residential & Commercial",
     description: "Motivated buyer and seller leads for real estate agents, brokers, and investors.",
-    link: null,
+    link: "/realestate",
     active: false,
   },
   {
@@ -48,7 +49,7 @@ const industries = [
     title: "Wealth Management",
     subtitle: "Investment & Advisory",
     description: "High-net-worth individual leads for wealth managers and financial planners.",
-    link: null,
+    link: "/wealth",
     active: false,
   },
   {
@@ -56,7 +57,7 @@ const industries = [
     title: "B2B Services",
     subtitle: "Professional Services",
     description: "Decision-maker leads for B2B service providers and enterprise solutions.",
-    link: null,
+    link: "/b2b",
     active: false,
   },
 ];
@@ -111,14 +112,11 @@ export function IndustriesSection() {
               whileHover={industry.active ? { y: -6, transition: { duration: 0.3 } } : {}}
             >
               {industry.active && industry.link ? (
-                <a
-                  href={industry.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block h-full"
-                >
-                  <IndustryCard industry={industry} isInView={isInView} />
-                </a>
+                <Link href={industry.link}>
+                  <a className="block h-full">
+                    <IndustryCard industry={industry} isInView={isInView} />
+                  </a>
+                </Link>
               ) : (
                 <IndustryCard industry={industry} isInView={isInView} />
               )}

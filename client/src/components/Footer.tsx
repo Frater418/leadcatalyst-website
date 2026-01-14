@@ -1,10 +1,11 @@
 /**
  * Footer Component - LeadCatalyst
- * 
+ *
  * Professional footer with links and branding
  * Matches the dark theme aesthetic
  */
 
+import { Link } from "wouter";
 import { Linkedin, Mail, Phone } from "lucide-react";
 
 const footerLinks = {
@@ -21,8 +22,10 @@ const footerLinks = {
     { label: "Cookie Policy", href: "/cookies" },
   ],
   verticals: [
-    { label: "Legal / MVA", href: "https://legal.leadcatalyst.com", external: true },
-    { label: "Life Insurance", href: "https://insurance.leadcatalyst.com", external: true },
+    { label: "Insurance", href: "/insurance", external: false, active: true },
+    { label: "Legal / MVA", href: "/legal", external: false, active: false },
+    { label: "Financial Services", href: "/financial", external: false, active: false },
+    { label: "Real Estate", href: "/realestate", external: false, active: false },
   ],
 };
 
@@ -116,26 +119,22 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.verticals.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
-                    className="text-sm text-muted-foreground hover:text-[#F5A623] transition-colors inline-flex items-center gap-1"
-                  >
-                    {link.label}
-                    {link.external && (
-                      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
-                      </svg>
-                    )}
-                  </a>
+                  {link.active ? (
+                    <Link href={link.href}>
+                      <a className="text-sm text-muted-foreground hover:text-[#F5A623] transition-colors">
+                        {link.label}
+                      </a>
+                    </Link>
+                  ) : (
+                    <span className="text-sm text-muted-foreground/50 flex items-center gap-2">
+                      {link.label}
+                      <span className="text-xs bg-muted px-2 py-0.5 rounded">
+                        Coming Soon
+                      </span>
+                    </span>
+                  )}
                 </li>
               ))}
-              <li>
-                <span className="text-sm text-muted-foreground/50">
-                  More verticals coming soon...
-                </span>
-              </li>
             </ul>
           </div>
 

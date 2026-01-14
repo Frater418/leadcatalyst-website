@@ -9,3 +9,6 @@ export const GHL_CALENDAR_URL = "https://api.leadconnectorhq.com/widget/form/5MU
 
 // Webhook URL for ContactSection form submission
 export const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/Pxq1MzFZM8RO6VDxWsPa/webhook-trigger/220acb1a-ef81-49e2-bef6-0053d1a587c9";
+
+// Webhook URL for Insurance Vertical contact form
+export const GHL_INSURANCE_WEBHOOK_URL = "";

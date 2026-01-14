@@ -7,17 +7,35 @@
  */
 
 import { useState, useEffect } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MessageSquare } from "lucide-react";
+import { Menu, X, MessageSquare, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { ModalMode } from "@/components/ui/ghl-modal";
 
-const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#industries", label: "Industries" },
-  { href: "#approach", label: "Our Approach" },
-  { href: "#contact", label: "Contact" },
+interface NavLink {
+  href: string;
+  label: string;
+  isAnchor?: boolean;
+  children?: { href: string; label: string; active: boolean }[];
+}
+
+const navLinks: NavLink[] = [
+  { href: "#about", label: "About", isAnchor: true },
+  { href: "#services", label: "Services", isAnchor: true },
+  {
+    href: "#industries",
+    label: "Industries",
+    isAnchor: true,
+    children: [
+      { href: "/insurance", label: "Insurance", active: true },
+      { href: "/legal", label: "Legal / MVA", active: false },
+      { href: "/financial", label: "Financial Services", active: false },
+      { href: "/realestate", label: "Real Estate", active: false },
+    ],
+  },
+  { href: "#approach", label: "Our Approach", isAnchor: true },
+  { href: "#contact", label: "Contact", isAnchor: true },
 ];
 
 interface HeaderProps {
@@ -27,6 +45,7 @@ interface HeaderProps {
 export function Header({ onOpenModal }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,14 +92,64 @@ export function Header({ onOpenModal }: HeaderProps) {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
+              <div
                 key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                className="relative"
+                onMouseEnter={() => link.children && setActiveDropdown(link.href)}
+                onMouseLeave={() => link.children && setActiveDropdown(null)}
               >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F5A623] transition-all group-hover:w-full" />
-              </button>
+                <button
+                  onClick={() => link.isAnchor && scrollToSection(link.href)}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group flex items-center gap-1"
+                >
+                  {link.label}
+                  {link.children && (
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-200 ${
+                        activeDropdown === link.href ? "rotate-180" : ""
+                      }`}
+                    />
+                  )}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F5A623] transition-all group-hover:w-full" />
+                </button>
+
+                {/* Dropdown Menu */}
+                {link.children && (
+                  <AnimatePresence>
+                    {activeDropdown === link.href && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute top-full left-0 mt-2 w-[280px] bg-background/98 backdrop-blur-md border border-border rounded-lg shadow-xl overflow-hidden"
+                      >
+                        {link.children.map((child) => (
+                          <div key={child.href}>
+                            {child.active ? (
+                              <Link href={child.href}>
+                                <a
+                                  className="block px-4 py-3 text-sm text-foreground hover:bg-[#F5A623]/10 hover:text-[#F5A623] transition-colors"
+                                  onClick={() => setActiveDropdown(null)}
+                                >
+                                  {child.label}
+                                </a>
+                              </Link>
+                            ) : (
+                              <div className="px-4 py-3 text-sm text-muted-foreground/60 cursor-not-allowed flex items-center justify-between">
+                                <span>{child.label}</span>
+                                <span className="text-[10px] font-medium uppercase tracking-wider bg-[#F5A623]/10 text-[#F5A623]/70 px-2 py-0.5 rounded-full border border-[#F5A623]/20 ml-4">
+                                  Coming Soon
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
+              </div>
             ))}
           </nav>
 
@@ -124,13 +193,39 @@ export function Header({ onOpenModal }: HeaderProps) {
           >
             <nav className="container py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-left text-lg font-medium text-foreground hover:text-[#F5A623] transition-colors py-2"
-                >
-                  {link.label}
-                </button>
+                <div key={link.href}>
+                  <button
+                    onClick={() => link.isAnchor && scrollToSection(link.href)}
+                    className="text-left text-lg font-medium text-foreground hover:text-[#F5A623] transition-colors py-2 w-full"
+                  >
+                    {link.label}
+                  </button>
+                  {link.children && (
+                    <div className="pl-4 mt-2 flex flex-col gap-2">
+                      {link.children.map((child) => (
+                        <div key={child.href}>
+                          {child.active ? (
+                            <Link href={child.href}>
+                              <a
+                                className="block text-sm text-muted-foreground hover:text-[#F5A623] transition-colors py-1"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {child.label}
+                              </a>
+                            </Link>
+                          ) : (
+                            <div className="text-sm text-muted-foreground/50 py-2 flex items-center justify-between">
+                              <span>{child.label}</span>
+                              <span className="text-[10px] font-medium uppercase tracking-wider bg-[#F5A623]/10 text-[#F5A623]/70 px-2 py-0.5 rounded-full border border-[#F5A623]/20">
+                                Coming Soon
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <Button
                 onClick={() => {
