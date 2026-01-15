@@ -108,12 +108,12 @@ export function ApproachSection() {
             <span className="text-sm font-medium text-[#F5A623]">Our Approach</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            A Proven{" "}
-            <span className="font-display italic text-[#F5A623]">Methodology</span>
+            How Vertical-First{" "}
+            <span className="font-display italic text-[#F5A623]">Qualification Works</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Our systematic approach ensures consistent results and transparent 
-            communication throughout every engagement.
+            Our systematic approach ensures compliance-aware prospecting and transparent
+            qualification criteria for every vertical we serve.
           </p>
         </motion.div>
 

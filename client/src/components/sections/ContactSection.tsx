@@ -117,7 +117,7 @@ export function ContactSection() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-1/3 left-10 w-64 h-64 bg-[#3B82F6]/5 rounded-full blur-3xl"
+        className="absolute bottom-1/3 left-10 w-64 h-64 bg-[#22C55E]/5 rounded-full blur-3xl"
         animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -135,15 +135,15 @@ export function ContactSection() {
             </div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Ready to{" "}
-              <span className="font-display italic text-[#F5A623]">Accelerate</span>
+              Ready to See{" "}
+              <span className="font-display italic text-[#F5A623]">Vertical-First</span>
               <br />
-              Your Growth?
+              in Action?
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Let's discuss how LeadCatalyst can help you acquire high-quality leads 
-              and scale your business. Fill out the form and our team will get back 
+              Let's discuss how LeadCatalyst can deliver pre-qualified prospects
+              for your industry. Fill out the form and our team will get back
               to you within 24 hours.
             </p>
 

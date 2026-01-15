@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function InsuranceHeader() {
@@ -28,23 +27,19 @@ export default function InsuranceHeader() {
       <div className="container">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/insurance">
-            <a className="flex items-center gap-2 group">
-              <span className="text-xl md:text-2xl font-display font-bold text-white">
-                LeadCatalyst
-              </span>
-              <span className="text-xl md:text-2xl font-display italic text-[#F5A623]">
-                Insurance
-              </span>
-            </a>
+          <Link href="/insurance" className="flex items-center gap-2 group">
+            <span className="text-xl md:text-2xl font-display font-bold text-white">
+              LeadCatalyst
+            </span>
+            <span className="text-xl md:text-2xl font-display italic text-[#F5A623]">
+              Insurance
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
-            <Link href="/insurance">
-              <a className="text-sm font-medium text-white/70 hover:text-white transition-colors">
-                Home
-              </a>
+            <Link href="/insurance" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+              Home
             </Link>
 
             {/* Solutions Dropdown */}
@@ -70,51 +65,41 @@ export default function InsuranceHeader() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-[280px] bg-[oklch(0.16_0.015_250)] border border-white/10 rounded-lg shadow-xl overflow-hidden"
                   >
-                    <Link href="/insurance/for-carriers">
-                      <a
-                        className="block px-4 py-3 hover:bg-white/5 transition-colors"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        <div className="text-sm font-medium text-white">For Carriers & Distributors</div>
-                        <p className="text-xs text-white/60 mt-1">Enterprise-grade lead solutions at scale</p>
-                      </a>
+                    <Link
+                      href="/insurance/for-carriers"
+                      className="block px-4 py-3 hover:bg-white/5 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      <div className="text-sm font-medium text-white">For Carriers & Distributors</div>
+                      <p className="text-xs text-white/60 mt-1">Enterprise-grade lead solutions at scale</p>
                     </Link>
-                    <Link href="/insurance/for-agents">
-                      <a
-                        className="block px-4 py-3 hover:bg-white/5 transition-colors"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        <div className="text-sm font-medium text-white">For Agents & Producers</div>
-                        <p className="text-xs text-white/60 mt-1">Turnkey lead engine for independent agents</p>
-                      </a>
+                    <Link
+                      href="/insurance/for-agents"
+                      className="block px-4 py-3 hover:bg-white/5 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      <div className="text-sm font-medium text-white">For Agents & Producers</div>
+                      <p className="text-xs text-white/60 mt-1">Turnkey lead engine for independent agents</p>
                     </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <Link href="/insurance/platform">
-              <a className="text-sm font-medium text-white/70 hover:text-white transition-colors">
-                Platform
-              </a>
+            <Link href="/insurance/platform" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+              Platform
             </Link>
 
-            <Link href="/insurance/lead-quality">
-              <a className="text-sm font-medium text-white/70 hover:text-white transition-colors">
-                Lead Quality
-              </a>
+            <Link href="/insurance/lead-quality" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+              Lead Quality
             </Link>
 
-            <Link href="/insurance/pricing">
-              <a className="text-sm font-medium text-white/70 hover:text-white transition-colors">
-                Pricing
-              </a>
+            <Link href="/insurance/pricing" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+              Pricing
             </Link>
 
-            <Link href="/insurance/how-it-works">
-              <a className="text-sm font-medium text-white/70 hover:text-white transition-colors">
-                How It Works
-              </a>
+            <Link href="/insurance/how-it-works" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+              How It Works
             </Link>
 
             {/* Resources Dropdown */}
@@ -140,48 +125,41 @@ export default function InsuranceHeader() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-[200px] bg-[oklch(0.16_0.015_250)] border border-white/10 rounded-lg shadow-xl overflow-hidden"
                   >
-                    <Link href="/insurance/compliance">
-                      <a
-                        className="block px-4 py-3 text-sm text-white hover:bg-white/5 transition-colors"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        Compliance
-                      </a>
+                    <Link
+                      href="/insurance/compliance"
+                      className="block px-4 py-3 text-sm text-white hover:bg-white/5 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Compliance
                     </Link>
-                    <Link href="/insurance/case-studies">
-                      <a
-                        className="block px-4 py-3 text-sm text-white hover:bg-white/5 transition-colors"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        Case Studies
-                      </a>
+                    <Link
+                      href="/insurance/case-studies"
+                      className="block px-4 py-3 text-sm text-white hover:bg-white/5 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Case Studies
                     </Link>
-                    <Link href="/insurance/faq">
-                      <a
-                        className="block px-4 py-3 text-sm text-white hover:bg-white/5 transition-colors"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        FAQ
-                      </a>
+                    <Link
+                      href="/insurance/faq"
+                      className="block px-4 py-3 text-sm text-white hover:bg-white/5 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      FAQ
                     </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <Link href="/insurance/contact">
-              <a className="text-sm font-medium text-white/70 hover:text-white transition-colors">
-                Contact
-              </a>
+            <Link href="/insurance/contact" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+              Contact
             </Link>
           </nav>
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <Link href="/">
-              <a className="text-sm font-medium text-[#F5A623] hover:text-[#FFD93D] transition-colors">
-                ← Back to LeadCatalyst
-              </a>
+            <Link href="/" className="text-sm font-medium text-[#F5A623] hover:text-[#FFD93D] transition-colors">
+              ← Back to LeadCatalyst
             </Link>
           </div>
 
@@ -206,120 +184,108 @@ export default function InsuranceHeader() {
             className="lg:hidden bg-[oklch(0.12_0.015_250)]/98 backdrop-blur-md border-b border-white/10"
           >
             <nav className="container py-6 flex flex-col gap-4">
-              <Link href="/insurance">
-                <a
-                  className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Home
-                </a>
+              <Link
+                href="/insurance"
+                className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
               </Link>
 
               <div>
                 <div className="text-lg font-medium text-white py-2">Solutions</div>
                 <div className="pl-4 mt-2 flex flex-col gap-2">
-                  <Link href="/insurance/for-carriers">
-                    <a
-                      className="text-sm text-white/70 hover:text-[#F5A623] transition-colors py-1"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      For Carriers & Distributors
-                    </a>
+                  <Link
+                    href="/insurance/for-carriers"
+                    className="text-sm text-white/70 hover:text-[#F5A623] transition-colors py-1"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    For Carriers & Distributors
                   </Link>
-                  <Link href="/insurance/for-agents">
-                    <a
-                      className="text-sm text-white/70 hover:text-[#F5A623] transition-colors py-1"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      For Agents & Producers
-                    </a>
+                  <Link
+                    href="/insurance/for-agents"
+                    className="text-sm text-white/70 hover:text-[#F5A623] transition-colors py-1"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    For Agents & Producers
                   </Link>
                 </div>
               </div>
 
-              <Link href="/insurance/platform">
-                <a
-                  className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Platform
-                </a>
+              <Link
+                href="/insurance/platform"
+                className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Platform
               </Link>
 
-              <Link href="/insurance/lead-quality">
-                <a
-                  className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Lead Quality
-                </a>
+              <Link
+                href="/insurance/lead-quality"
+                className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Lead Quality
               </Link>
 
-              <Link href="/insurance/pricing">
-                <a
-                  className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Pricing
-                </a>
+              <Link
+                href="/insurance/pricing"
+                className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Pricing
               </Link>
 
-              <Link href="/insurance/how-it-works">
-                <a
-                  className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  How It Works
-                </a>
+              <Link
+                href="/insurance/how-it-works"
+                className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                How It Works
               </Link>
 
               <div>
                 <div className="text-lg font-medium text-white py-2">Resources</div>
                 <div className="pl-4 mt-2 flex flex-col gap-2">
-                  <Link href="/insurance/compliance">
-                    <a
-                      className="text-sm text-white/70 hover:text-[#F5A623] transition-colors py-1"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Compliance
-                    </a>
+                  <Link
+                    href="/insurance/compliance"
+                    className="text-sm text-white/70 hover:text-[#F5A623] transition-colors py-1"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Compliance
                   </Link>
-                  <Link href="/insurance/case-studies">
-                    <a
-                      className="text-sm text-white/70 hover:text-[#F5A623] transition-colors py-1"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Case Studies
-                    </a>
+                  <Link
+                    href="/insurance/case-studies"
+                    className="text-sm text-white/70 hover:text-[#F5A623] transition-colors py-1"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Case Studies
                   </Link>
-                  <Link href="/insurance/faq">
-                    <a
-                      className="text-sm text-white/70 hover:text-[#F5A623] transition-colors py-1"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      FAQ
-                    </a>
+                  <Link
+                    href="/insurance/faq"
+                    className="text-sm text-white/70 hover:text-[#F5A623] transition-colors py-1"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    FAQ
                   </Link>
                 </div>
               </div>
 
-              <Link href="/insurance/contact">
-                <a
-                  className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact
-                </a>
+              <Link
+                href="/insurance/contact"
+                className="text-lg font-medium text-white hover:text-[#F5A623] transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
               </Link>
 
               <div className="pt-4 mt-2 border-t border-white/10">
-                <Link href="/">
-                  <a
-                    className="text-sm font-medium text-[#F5A623] hover:text-[#FFD93D] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    ← Back to LeadCatalyst
-                  </a>
+                <Link
+                  href="/"
+                  className="text-sm font-medium text-[#F5A623] hover:text-[#FFD93D] transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  ← Back to LeadCatalyst
                 </Link>
               </div>
             </nav>

@@ -72,12 +72,12 @@ export function WhyUsSection() {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            What We{" "}
-            <span className="font-display italic text-[#F5A623]">Promise</span>
+            The Vertical-First{" "}
+            <span className="font-display italic text-[#F5A623]">Advantage</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            No fluff. No hidden fees. Just qualified leads delivered to your
-            team with full transparency.
+            No fluff. No hidden fees. Just vertical-qualified prospects delivered
+            to your team with full transparency.
           </p>
         </motion.div>
 

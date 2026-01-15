@@ -10,15 +10,13 @@ export default function InsuranceFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/insurance">
-              <a className="inline-flex items-center gap-2 group">
-                <span className="text-xl font-display font-bold text-white">
-                  LeadCatalyst
-                </span>
-                <span className="text-xl font-display italic text-[oklch(0.78_0.15_75)]">
-                  Insurance
-                </span>
-              </a>
+            <Link href="/insurance" className="inline-flex items-center gap-2 group">
+              <span className="text-xl font-display font-bold text-white">
+                LeadCatalyst
+              </span>
+              <span className="text-xl font-display italic text-[oklch(0.78_0.15_75)]">
+                Insurance
+              </span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed">
               Carrier-grade insurance leads with underwriting-fit scoring, TCPA compliance, and real-time delivery.
@@ -48,38 +46,28 @@ export default function InsuranceFooter() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/insurance/for-carriers">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    For Carriers & Distributors
-                  </a>
+                <Link href="/insurance/for-carriers" className="text-sm text-white/60 hover:text-white transition-colors">
+                  For Carriers & Distributors
                 </Link>
               </li>
               <li>
-                <Link href="/insurance/for-agents">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    For Agents & Producers
-                  </a>
+                <Link href="/insurance/for-agents" className="text-sm text-white/60 hover:text-white transition-colors">
+                  For Agents & Producers
                 </Link>
               </li>
               <li>
-                <Link href="/insurance/platform">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    Platform & Technology
-                  </a>
+                <Link href="/insurance/platform" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Platform & Technology
                 </Link>
               </li>
               <li>
-                <Link href="/insurance/lead-quality">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    Lead Quality Standards
-                  </a>
+                <Link href="/insurance/lead-quality" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Lead Quality Standards
                 </Link>
               </li>
               <li>
-                <Link href="/insurance/pricing">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    Pricing
-                  </a>
+                <Link href="/insurance/pricing" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Pricing
                 </Link>
               </li>
             </ul>
@@ -92,38 +80,28 @@ export default function InsuranceFooter() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/insurance/how-it-works">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    How It Works
-                  </a>
+                <Link href="/insurance/how-it-works" className="text-sm text-white/60 hover:text-white transition-colors">
+                  How It Works
                 </Link>
               </li>
               <li>
-                <Link href="/insurance/compliance">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    TCPA & Compliance
-                  </a>
+                <Link href="/insurance/compliance" className="text-sm text-white/60 hover:text-white transition-colors">
+                  TCPA & Compliance
                 </Link>
               </li>
               <li>
-                <Link href="/insurance/case-studies">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    Case Studies
-                  </a>
+                <Link href="/insurance/case-studies" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Case Studies
                 </Link>
               </li>
               <li>
-                <Link href="/insurance/faq">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    FAQ
-                  </a>
+                <Link href="/insurance/faq" className="text-sm text-white/60 hover:text-white transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/insurance/contact">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    Contact & Demo
-                  </a>
+                <Link href="/insurance/contact" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Contact & Demo
                 </Link>
               </li>
             </ul>
@@ -136,31 +114,23 @@ export default function InsuranceFooter() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    About LeadCatalyst
-                  </a>
+                <Link href="/" className="text-sm text-white/60 hover:text-white transition-colors">
+                  About LeadCatalyst
                 </Link>
               </li>
               <li>
-                <Link href="/privacy">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    Privacy Policy
-                  </a>
+                <Link href="/privacy" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    Terms of Service
-                  </a>
+                <Link href="/terms" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/cookies">
-                  <a className="text-sm text-white/60 hover:text-white transition-colors">
-                    Cookie Policy
-                  </a>
+                <Link href="/cookies" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Cookie Policy
                 </Link>
               </li>
             </ul>

@@ -74,35 +74,43 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F5A623]/10 border border-[#F5A623]/30 mb-6">
               <div className="w-2 h-2 rounded-full bg-[#F5A623] animate-pulse" />
               <span className="text-sm font-medium text-[#F5A623]">
-                Strategic Growth Partner
+                Vertical-First Lead Qualification
               </span>
             </div>
 
             {/* Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              The Growth{" "}
-              <span className="font-display italic text-[#F5A623]">Engine</span>
+              Pre-Qualified Prospects for{" "}
+              <span className="font-display italic text-[#F5A623]">Regulated</span>
               <br />
-              for Modern Business
+              Industries
             </h1>
+
+            {/* Vertical List */}
+            <p className="text-sm sm:text-base text-[#F5A623] font-medium mb-4 tracking-wide">
+              Legal · Insurance · Financial Services · Wealth Management · Real Estate
+            </p>
 
             {/* Subheadline */}
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
-              Strategic lead generation and performance marketing that drives
-              measurable results. We help businesses scale through data-driven
-              digital campaigns and qualified lead acquisition.
+              Regulated industries need more than generic leads. They need prospects
+              qualified for their specific compliance requirements, sales cycles, and
+              conversion criteria. That's vertical-first lead generation.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button
-                onClick={() => onOpenModal("form")}
+                onClick={() => {
+                  const element = document.querySelector("#industries");
+                  if (element) element.scrollIntoView({ behavior: "smooth" });
+                }}
                 variant="amber"
                 size="lg"
                 className="px-8 h-12 text-base shadow-gold group"
               >
                 <Shield className="w-5 h-5 mr-2" />
-                Get Qualified Leads
+                See Our Verticals
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
@@ -111,7 +119,7 @@ export function HeroSection({ onOpenModal }: HeroSectionProps) {
                 size="lg"
                 className="border-border hover:border-[#F5A623]/50 hover:bg-[#F5A623]/5 h-12 text-base"
               >
-                Explore Services
+                How We Qualify Prospects
               </Button>
             </div>
 
@@ -233,7 +241,7 @@ function LiveActivityFeed() {
   const getActionColor = (action: string) => {
     if (action.includes("delivered")) return "#22C55E";
     if (action.includes("qualified")) return "#F5A623";
-    return "#3B82F6";
+    return "#8B949E"; // Warm Gray for verified status
   };
 
   return (
@@ -285,13 +293,9 @@ function LiveActivityFeed() {
                     }}
                   >
                     <div
-                      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-                      style={{ backgroundColor: `${item.type === "legal" ? "#F5A623" : "#3B82F6"}15` }}
+                      className="w-9 h-9 rounded-lg bg-[#F5A623]/10 flex items-center justify-center shrink-0"
                     >
-                      <Icon
-                        className="w-4 h-4"
-                        style={{ color: item.type === "legal" ? "#F5A623" : "#3B82F6" }}
-                      />
+                      <Icon className="w-4 h-4 text-[#F5A623]" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">

@@ -2,14 +2,15 @@
 
 ## Project Overview
 
-LeadCatalyst is the main corporate website for a B2B lead generation holding company. The site showcases multiple industry verticals (Legal/MVA, Insurance) and serves as the central brand hub. The design follows a "Refined Catalyst" philosophy with a dark charcoal background, warm gold (#F5A623) accents, and Playfair Display serif typography for headlines.
+LeadCatalyst is the main corporate website for a **vertical-first B2B lead generation agency** specializing in regulated industries. The site showcases multiple industry verticals (Legal, Insurance, Financial Services, Wealth Management, Real Estate) and serves as the central brand hub. The design follows a "Refined Catalyst" philosophy with a dark charcoal background, warm gold (#F5A623) accents, and Playfair Display serif typography for headlines.
 
 **Current Status**: Website is live and ready for deployment. All sections have animations, mobile optimization is complete.
 
 **Brand Compliance Status**: ✅ Fully Compliant (January 2026)
 - Complete Brand Kit audit performed
-- All 9 deviations fixed (Dark Gold, gradients, easing functions, letter spacing)
-- Validated against `/home/frater418/Lead Catalyst Brand Kit/`
+- Brand Story optimized based on comprehensive audit
+- Language Playbook implemented
+- 5-Agent validation system operational
 
 ## Tech Stack
 
@@ -34,11 +35,11 @@ LeadCatalyst is the main corporate website for a B2B lead generation holding com
 │   │   ├── ui/              # shadcn/ui components (Radix-based)
 │   │   │   └── ghl-modal.tsx # GoHighLevel modal component
 │   │   ├── sections/        # Landing page sections
-│   │   │   ├── HeroSection.tsx      # Hero with Live Activity Feed
+│   │   │   ├── HeroSection.tsx
 │   │   │   ├── AboutSection.tsx
 │   │   │   ├── ServicesSection.tsx
 │   │   │   ├── IndustriesSection.tsx
-│   │   │   ├── ApproachSection.tsx  # 4-step methodology with color hierarchy
+│   │   │   ├── ApproachSection.tsx
 │   │   │   ├── WhyUsSection.tsx
 │   │   │   └── ContactSection.tsx
 │   │   ├── Header.tsx
@@ -82,123 +83,329 @@ The Hostinger MCP server provides tools for:
 - DNS configuration
 - Hosting deployment
 
-## Design System
-
-### Colors
-- **Primary Gold**: `#F5A623` (brand accent)
-- **Dark Gold**: `#D4880F` (hover states)
-- **Success Green**: `#22C55E`
-- **Dark Background**: `oklch(0.12 0.015 250)` (charcoal)
-
-### Animation Standards
-- **Entrance**: 0.6s duration with easeOut
-- **Stagger**: 0.08s between items
-- **Hover**: 0.3s transitions
-- **All animations use GPU-accelerated properties** (transform, opacity)
-
-### Approach Section Color Hierarchy
-The 4-step methodology uses progressive colors:
-1. Gray (#6B7280) - Discovery
-2. Dark Gold (#D4880F) - Strategy
-3. Brand Gold (#F5A623) - Execution
-4. Green (#22C55E) - Optimization
-
-### Border Radius
-- Cards: `rounded-xl`
-- Containers: `rounded-2xl`
-
-### Key UI Patterns
-- `shadow-gold`: Gold glow effect
-- `glass-dark`: Dark glassmorphism
-- `hover-lift`: Subtle lift on hover
-- Floating orbs in section backgrounds
-
-## Key Integrations
-
-### GoHighLevel (GHL) Modal
-All CTA buttons open a GHL modal for lead capture.
-- Config: `client/src/config/ghl.ts`
-- Component: `client/src/components/ui/ghl-modal.tsx`
-- Modes: form, calendar
-
-### Integration Section (ApproachSection.tsx)
-Shows CRM integrations with brand icons:
-- Salesforce, HubSpot, GoHighLevel, Zapier, Custom API
-- All have nofollow external links
-
-### Active Verticals
-1. **Legal/MVA**: https://legal.leadcatalyst.com
-2. **Insurance**: https://insurance.leadcatalyst.com
-
-## Mobile Optimization
-
-- Responsive typography (text-3xl → text-6xl)
-- Touch targets min 44x44px
-- Container padding adjusts for <360px screens
-- Live Activity Feed has responsive height
-
-## Legal Information
-
-- **Company**: Auranex, LLC (Delaware)
-- **Address**: 131 Continental Dr, Suite 305, Newark, DE 19713
-- **Contact**: privacy@auranex.ai / contact@leadcatalyst.com
-- **Phone**: +1 (754) 209-2098
-
-## Related Repositories
-
-- `lead-catalyst-premium` - Premium vertical
-- `lead-catalyst-insurance` - Insurance vertical subdomain
-
 ---
 
-# Brand Kit (Single Source of Truth)
+# Brand Identity (Single Source of Truth)
 
-**Version 1.0 | January 2025**
+**Version 2.0 | January 2026**
 **Source**: `/home/frater418/Lead Catalyst Brand Kit/`
 
-This section consolidates all brand guidelines from the official Brand Kit. All design decisions must align with these specifications.
-
 ---
 
-## Brand Essence
+## Brand Positioning
 
-### Mission
-Transform how businesses acquire customers by combining data-driven strategies with human expertise, delivering measurable results that accelerate growth and maximize ROI.
+### Who We Are
+LeadCatalyst is a **vertical-first lead generation agency** for regulated premium industries. We specialize in delivering pre-qualified prospects with compliance built into every step.
 
-### Vision
-To become the most trusted partner for businesses seeking sustainable, scalable lead generation solutions across all industries.
+### Target Verticals
+- **Legal Services** (Kanzleien, Legal Tech, Corporate Counsel)
+- **Insurance** (Versicherungsmakler, Carriers, InsurTech)
+- **Financial Services** (Asset Management, FinTech, Advisory)
+- **Wealth Management** (Private Banking, Family Offices, HNW Advisory)
+- **Real Estate** (Commercial, Investment, Development)
 
-### Brand Personality
-| Trait | Description |
-|-------|-------------|
-| **Confident** | Bold statements, clear value propositions, data-backed claims |
-| **Approachable** | Conversational tone, clear explanations, welcoming language |
-| **Innovative** | Modern design, forward-thinking messaging, tech-savvy approach |
-| **Trustworthy** | Transparent communication, honest expectations, proven track record |
-| **Results-Oriented** | Metrics-driven language, ROI focus, performance emphasis |
+### What Makes Us Different
 
-### Brand Values
-- **Excellence** — Highest standards in everything
-- **Integrity** — Complete transparency
-- **Partnership** — True client partnerships
-- **Innovation** — Continuously evolving strategies
-- **Accountability** — Ownership of results
+| Generic Agencies | LeadCatalyst |
+|-----------------|--------------|
+| "We deliver leads" | We deliver **conversion opportunities** |
+| "Quality over quantity" | **Vertical-specific qualification criteria** |
+| "Data-driven approach" | **Compliance-aware prospecting** (GDPR, AML, FCA) |
+| "Strategic partner" | **Vertical specialist** with industry expertise |
+| Volume KPIs | **Conversion KPIs** |
 
 ---
 
 ## Primary Tagline
 
-> **The Growth Engine for Modern Business**
+> **Vertical-First Lead Qualification**
+
+⚠️ **DEPRECATED**: "The Growth Engine for Modern Business" - DO NOT USE
 
 ### Alternative Taglines
+
 | Context | Tagline |
 |---------|---------|
-| Lead Gen Focus | Qualified Leads. Accelerated Growth. |
-| Partnership Focus | Your Strategic Growth Partner |
-| Results Focus | Where Strategy Meets Results |
-| Industry Focus | Vertical Expertise. Horizontal Impact. |
+| Homepage Hero | Pre-Qualified Prospects. Vertical Expertise. |
+| Regulated Industries | Compliance-Aware Lead Generation |
+| ROI Focus | Conversion-Focused, Not Volume-Focused |
+| Authority | The Vertical Specialists |
+| Industry Pages | Qualified Leads for Regulated Industries |
 
 ---
+
+## Messaging Pillars (Updated)
+
+### Pillar 1: Vertical Expertise
+> "Every industry has its own rules. Legal leads need practice-area match. Insurance leads need AML compliance. We understand the differences—and qualify accordingly."
+
+### Pillar 2: Compliance-First
+> "In regulated industries, compliance isn't nice-to-have—it's existential. We've built GDPR, AML, and FCA awareness into every prospecting step."
+
+### Pillar 3: Conversion Over Volume
+> "30 pre-qualified prospects beats 100 generic leads. We optimize for your sales team's efficiency, not our dashboard metrics."
+
+### Pillar 4: Qualification Transparency
+> "You see exactly how we qualify. Which criteria. Which filters. Which results. No black box."
+
+---
+
+## Brand Personality: 75/25 Rule
+
+**75% Confident:**
+- Authority statements backed by data
+- Clear opinions on best practices
+- Willingness to say no to bad-fit prospects
+
+**25% Approachable:**
+- No corporate jargon
+- Conversational where appropriate
+- Transparent process explanations
+
+---
+
+# Language Playbook
+
+## Forbidden Buzzwords (NEVER USE)
+
+| ❌ Forbidden | ✅ Replace With |
+|-------------|-----------------|
+| "Growth Engine" | "Conversion Engine" or "Vertical Specialists" |
+| "Quality over quantity" | "Vertical-specific qualification" |
+| "Data-driven" | "Compliance-aware prospecting" |
+| "Strategic partner" | "Vertical specialist" |
+| "Modern business" | "[Specific vertical] companies" |
+| "Results-driven" | "Conversion-focused" |
+| "Innovative" | [Specific technology/approach] |
+| "Cutting-edge" | [Specific tool/method] |
+| "Help you grow" | [Specific outcome with metric] |
+
+## Required Language
+
+| ✅ Required | Context |
+|-------------|---------|
+| "Pre-qualified prospects" | Instead of "leads" |
+| "Vertical-specific" | Instead of "industry expertise" |
+| "Compliance-aware" | For regulated industries |
+| "Conversion-focused" | Instead of "results-driven" |
+| Specific metrics (X%) | Always quantify claims |
+
+---
+
+## Vertical-Specific Messaging
+
+### Legal Services
+**Primary Pain:** BD efficiency (respect billable hour economics)
+
+**Use These Phrases:**
+- ✅ "Practice-area match"
+- ✅ "Firm-size verification"
+- ✅ "Decision-maker authority"
+- ✅ "GDPR-compliant"
+- ✅ "Privilege-aware"
+- ✅ "Billable hour economics"
+
+**Avoid:**
+- ❌ "Grow your practice" (too generic)
+- ❌ "More clients" (they want profitable clients, not volume)
+- ❌ "Scale your business"
+
+### Insurance
+**Primary Pain:** CAC pressure + compliance risk
+
+**Use These Phrases:**
+- ✅ "AML-compliant sourcing"
+- ✅ "Verified prospect authentication"
+- ✅ "Compliance-screened"
+- ✅ "CAC efficiency"
+- ✅ "Long-cycle capable"
+
+**Avoid:**
+- ❌ "Insurance leads" (too generic)
+- ❌ "More customers"
+
+### Financial Services
+**Primary Pain:** Regulatory compliance + premium targeting
+
+**Use These Phrases:**
+- ✅ "FCA-compliant prospecting"
+- ✅ "HNW-qualified"
+- ✅ "Verified source documentation"
+- ✅ "Regulatory-aware"
+- ✅ "Premium profiling"
+
+**Avoid:**
+- ❌ "Financial leads" (vague, compliance risk)
+- ❌ Generic "Growth"
+
+### Real Estate
+**Primary Pain:** Pipeline consistency + lead quality
+
+**Use These Phrases:**
+- ✅ "Active buying intent"
+- ✅ "Decision-timeline verification"
+- ✅ "Pipeline consistency"
+- ✅ "Conversion-optimized nurturing"
+
+**Avoid:**
+- ❌ Generic volume promises
+
+### Wealth Management
+**Primary Pain:** Premium targeting + relationship building
+
+**Use These Phrases:**
+- ✅ "Ultra-premium qualification"
+- ✅ "Relationship-ready prospects"
+- ✅ "Wealth-verified targeting"
+- ✅ "Confidential handling"
+
+**Avoid:**
+- ❌ Transactional language
+
+---
+
+## SEO Keywords by Vertical
+
+| Vertical | Target Keywords |
+|----------|----------------|
+| Legal | "legal lead generation", "law firm leads", "qualified legal leads" |
+| Insurance | "insurance lead generation", "AML compliant leads" |
+| Financial | "financial services leads", "wealth management lead gen", "HNW leads" |
+| Real Estate | "real estate leads", "commercial real estate lead gen" |
+| Wealth Mgmt | "wealth management leads", "HNW lead generation" |
+
+---
+
+# 5-Agent Validation System
+
+## Agent Overview
+
+| Agent | Scope | Color |
+|-------|-------|-------|
+| **leadcatalyst-content-guardian** | Text, Messaging, Copy, SEO | 🔵 Blue |
+| **leadcatalyst-brand-guardian** | Colors, Fonts, Components, Visual Design | 🟢 Green |
+| **visual-enhancer** | Layout, Hierarchy, Desktop Design, Spacing | 🔵 Cyan |
+| **leadcatalyst-developer** | Code Implementation, React/TypeScript | 🟣 Purple |
+| **implementation-audit** | Final Verification, Spec Compliance | 🟠 Orange |
+
+## Agent Responsibilities
+
+### 📝 leadcatalyst-content-guardian
+**Checks:**
+- Messaging alignment with Brand Story
+- Language compliance (buzzwords, terminology)
+- Vertical-specific messaging
+- SEO compliance (keywords, headings, meta)
+- Tone of voice (75% confident / 25% approachable)
+
+**Use When:**
+- Writing new page content
+- Reviewing existing copy
+- Pre-launch content audit
+- Checking vertical-specific pages
+
+### 🛡️ leadcatalyst-brand-guardian
+**Checks:**
+- Exact color values (HEX compliance)
+- Typography (font families, sizes, weights)
+- Component styling (buttons, cards, inputs)
+- Spacing & layout patterns
+- Visual effects (gradients, shadows, borders)
+
+**Use When:**
+- Creating new components
+- Modifying CSS/Tailwind
+- Before deployment
+- After styling changes
+
+### 🖼️ visual-enhancer
+**Checks:**
+- Desktop layouts (widths, proportions)
+- Visual hierarchy (sizes, weighting)
+- Section variation (backgrounds, patterns)
+- Spacing & whitespace
+- Dual-accent color usage (Gold 70% + Vertical 30%)
+
+**Use When:**
+- Pages look monotonous
+- Desktop layout issues
+- Poor visual hierarchy
+- Sections all look the same
+
+### 💻 leadcatalyst-developer
+**Does:**
+- Implements code from specifications
+- Creates React/TypeScript components
+- Sets up routing
+- Integrates GoHighLevel forms
+- Implements SEO meta tags
+
+**Use When:**
+- Building new pages/components
+- Technical integrations
+- Implementing designs
+
+### ✅ implementation-audit
+**Checks:**
+- All requirements from specs implemented
+- File/folder structure correct
+- Routes working
+- Components complete
+- No missing functionality
+
+**Use When:**
+- After development is complete
+- Before deployment
+- Final verification
+
+## Agent Communication Flow
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     ROOT INSTANCE                            │
+│         (Orchestrates all Agents via Task Tool)             │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+        ┌──────────────────┼──────────────────┐
+        ▼                  ▼                  ▼
+┌───────────────┐  ┌───────────────┐  ┌───────────────┐
+│   DEVELOPER   │  │    VISUAL     │  │   CONTENT     │
+│               │  │   ENHANCER    │  │   GUARDIAN    │
+│ Implements    │  │ Analyzes      │  │ Checks Copy   │
+│ Code          │  │ Layout/Design │  │ & SEO         │
+└───────┬───────┘  └───────┬───────┘  └───────┬───────┘
+        │                  │                  │
+        │   Recommends     │   Recommends     │
+        ▼                  ▼                  ▼
+┌───────────────┐  ┌───────────────┐  ┌───────────────┐
+│    BRAND      │  │   DEVELOPER   │  │    BRAND      │
+│   GUARDIAN    │  │ (for impl.)   │  │   GUARDIAN    │
+│ Checks Visual │  │               │  │ (for visual)  │
+└───────┬───────┘  └───────────────┘  └───────────────┘
+        │
+        ▼
+┌───────────────┐
+│ IMPLEMENTATION│
+│    AUDIT      │
+│ Final Check   │
+└───────────────┘
+```
+
+## When to Use Which Agent
+
+| Task | Agent(s) to Use |
+|------|-----------------|
+| New landing page | developer → brand-guardian + content-guardian + visual-enhancer → implementation-audit |
+| Fix copy issues | content-guardian |
+| Fix color/font issues | brand-guardian |
+| Page looks boring | visual-enhancer → developer |
+| Pre-deployment check | implementation-audit |
+| Write new content | content-guardian (for validation) |
+| Build component | developer → brand-guardian |
+
+---
+
+# Design System
 
 ## Color System (OFFICIAL)
 
@@ -217,6 +424,17 @@ To become the most trusted partner for businesses seeking sustainable, scalable 
 | **Light Gold** | `#FFD93D` | Hover states, highlights |
 | **Dark Gold** | `#C4841D` | Pressed states, depth accents |
 
+### Vertical Accent Colors (MUST USE!)
+| Vertical | Color Name | HEX |
+|----------|------------|-----|
+| Legal | Justice Blue | `#2563EB` |
+| Insurance | Shield Teal | `#0D9488` |
+| Wealth | Prosperity Green | `#059669` |
+| Real Estate | Property Amber | `#D97706` |
+| Health | Vitality Cyan | `#06B6D4` |
+
+**Rule:** Gold (70%) + Vertical Color (30%) - Both MUST be actively used!
+
 ### Functional Colors
 | Color | HEX | Usage |
 |-------|-----|-------|
@@ -233,7 +451,7 @@ To become the most trusted partner for businesses seeking sustainable, scalable 
 
 ### Gradient Specifications
 ```css
-/* Hero gradient */
+/* Hero gradient (135deg, NOT 180deg!) */
 background: linear-gradient(135deg, #0D1117 0%, #161B22 50%, #1C2128 100%);
 
 /* Gold accent gradient */
@@ -241,23 +459,23 @@ background: linear-gradient(135deg, #F5A623 0%, #FFD93D 100%);
 
 /* Card gradient */
 background: linear-gradient(180deg, #161B22 0%, #0D1117 100%);
-
-/* Overlay gradient (for images) */
-background: linear-gradient(180deg, rgba(13, 17, 23, 0) 0%, rgba(13, 17, 23, 0.9) 100%);
 ```
 
-### Sub-Brand Color Accents
-| Vertical | Accent Color | HEX |
-|----------|--------------|-----|
-| Legal | Justice Blue | `#2563EB` |
-| Insurance | Shield Teal | `#0D9488` |
-| Wealth | Prosperity Green | `#059669` |
-| Real Estate | Property Amber | `#D97706` |
-| Health | Vitality Cyan | `#06B6D4` |
+### Section Background Patterns
+NEVER use same background for consecutive sections:
+
+| Pattern | CSS | Use For |
+|---------|-----|---------|
+| Standard Dark | `#0D1117` | Hero, standard sections |
+| Elevated Surface | `#161B22` | Cards, feature boxes |
+| Subtle Gradient | `linear-gradient(180deg, #0D1117, #161B22)` | Transitions |
+| Accent Glow | `radial-gradient(ellipse, rgba(accent, 0.15), transparent)` | Feature highlights |
+| Gold Tint | `linear-gradient(rgba(245,166,35,0.05), #0D1117)` | CTA sections |
+| Light Break | `#F8FAFC` with dark text | MAX 1x per page |
 
 ---
 
-## Typography System (OFFICIAL)
+## Typography System
 
 ### Font Families
 | Font | Purpose | Source |
@@ -274,27 +492,12 @@ background: linear-gradient(180deg, rgba(13, 17, 23, 0) 0%, rgba(13, 17, 23, 0.9
 | H2 | 40px (2.5rem) | 1.25 | 700 | Playfair |
 | H3 | 32px (2rem) | 1.3 | 500 | Playfair |
 | H4 | 24px (1.5rem) | 1.35 | 500 | Playfair |
-| H5 | 20px (1.25rem) | 1.4 | 600 | Inter |
-| H6 | 18px (1.125rem) | 1.4 | 600 | Inter |
-| Body Large | 18px | 1.6 | 400 | Inter |
 | Body | 16px | 1.6 | 400 | Inter |
-| Body Small | 14px | 1.5 | 400 | Inter |
-| Caption | 12px | 1.4 | 500 | Inter |
-
-### Responsive Typography (Mobile < 768px)
-| Level | Size |
-|-------|------|
-| Display XL | 40px |
-| Display L | 36px |
-| H1 | 32px |
-| H2 | 28px |
-| H3 | 24px |
-| Body | 16px |
 
 ### Signature Style: Italic Emphasis
-Key words in headlines use **italic Playfair Display in gold (#F5A623)**:
+One italic word in Gold per hero headline:
 ```html
-<h1>The Growth <em>Engine</em> for Modern Business</h1>
+<h1>Pre-Qualified Prospects for <em>Regulated Industries</em></h1>
 ```
 ```css
 h1 em {
@@ -311,72 +514,6 @@ h1 em {
 | Body Text | 0 |
 | Buttons | 0.02em |
 | Labels/Badges | 0.05em |
-| Overlines | 0.1em |
-
----
-
-## Website Style Specifications
-
-### CSS Variables (Required)
-```css
-:root {
-  /* Primary */
-  --color-gold: #F5A623;
-  --color-gold-light: #FFD93D;
-  --color-gold-dark: #C4841D;
-
-  /* Backgrounds */
-  --color-bg-primary: #0D1117;
-  --color-bg-secondary: #161B22;
-  --color-bg-elevated: #1C2128;
-
-  /* Text */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #8B949E;
-  --color-text-muted: #6E7681;
-
-  /* Borders */
-  --color-border: rgba(139, 148, 158, 0.2);
-  --color-border-gold: rgba(245, 166, 35, 0.3);
-
-  /* Fonts */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-```
-
-### Layout System
-| Breakpoint | Container Max-Width | Padding |
-|------------|---------------------|---------|
-| Mobile (<768px) | 100% | 16px |
-| Tablet (768-1024px) | 100% | 24px |
-| Desktop (>1024px) | 1280px | 32px |
-
-### Spacing Scale
-| Token | Value | Use |
-|-------|-------|-----|
-| xs | 4px | Tight spacing, icon gaps |
-| sm | 8px | Related elements |
-| md | 16px | Default spacing |
-| lg | 24px | Section padding |
-| xl | 32px | Major sections |
-| 2xl | 48px | Section gaps |
-| 3xl | 64px | Hero padding |
-| 4xl | 96px | Major section breaks |
-
-### Animation Timing
-| Type | Duration | Use |
-|------|----------|-----|
-| Micro | 150ms | Hover states |
-| Short | 200ms | Button presses |
-| Medium | 300ms | Card hovers |
-| Long | 500ms | Page transitions |
-
-### Easing Functions
-```css
---ease-out: cubic-bezier(0.16, 1, 0.3, 1);
---ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-```
 
 ---
 
@@ -392,7 +529,6 @@ h1 em {
   font-size: 14px;
   padding: 14px 28px;
   border-radius: 8px;
-  transition: all 0.2s ease;
 }
 .btn-primary:hover {
   background-color: #FFD93D;
@@ -403,17 +539,15 @@ h1 em {
 }
 ```
 
-### Secondary Button (Outline)
+### Secondary Button (Vertical Color)
 ```css
 .btn-secondary {
   background-color: transparent;
-  color: #FFFFFF;
-  border: 1px solid rgba(139, 148, 158, 0.2);
-  /* Same sizing as primary */
+  color: #0D9488; /* Use vertical color */
+  border: 1px solid #0D9488;
 }
 .btn-secondary:hover {
-  border-color: #F5A623;
-  color: #F5A623;
+  background-color: rgba(13, 148, 136, 0.1);
 }
 ```
 
@@ -428,312 +562,106 @@ h1 em {
 .card:hover {
   border-color: rgba(245, 166, 35, 0.3);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 ```
 
-### Navigation
+---
+
+## Animation Standards
+
+### Timing
+| Type | Duration | Use |
+|------|----------|-----|
+| Micro | 150ms | Hover states |
+| Short | 200ms | Button presses |
+| Medium | 300ms | Card hovers |
+| Long | 500ms | Page transitions |
+
+### Easing Functions
 ```css
-.nav {
-  position: fixed;
-  background: rgba(13, 17, 23, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(139, 148, 158, 0.2);
-}
-.nav-link {
-  font-family: Inter;
-  font-weight: 500;
-  font-size: 14px;
-  color: #8B949E;
-}
-.nav-link:hover { color: #FFFFFF; }
-.nav-link.active { color: #F5A623; }
-```
-
----
-
-## Tone of Voice
-
-### Voice Characteristics
-- **Confident, Not Arrogant** — Authority without diminishing others
-- **Professional, Not Stuffy** — Approachable while maintaining professionalism
-- **Clear, Not Simplistic** — Explain complex concepts clearly
-- **Results-Focused, Not Hyperbolic** — Data-backed claims, no "10x overnight"
-
-### Writing Guidelines
-- Lead with benefit or outcome
-- Keep sentences concise (15-20 words average)
-- Use active voice
-- Use "you" and "your" to address reader directly
-- Keep paragraphs to 3-4 sentences maximum
-
-### CTA Copy Examples
-- "Start Your Growth Journey"
-- "Get Qualified Leads"
-- "Schedule a Strategy Call"
-- "See How We Can Help"
-- "Accelerate Your Pipeline"
-
----
-
-## Messaging Pillars
-
-### Pillar 1: Quality Over Quantity
-> "We don't just generate leads—we deliver qualified prospects ready to convert."
-
-### Pillar 2: Data-Driven Strategy
-> "Every campaign is built on insights, optimized by data, and measured by results."
-
-### Pillar 3: Industry Expertise
-> "Deep vertical knowledge means strategies tailored to your market's unique dynamics."
-
-### Pillar 4: Partnership Approach
-> "We succeed when you succeed—that's why we invest in understanding your business."
-
----
-
-## Logo Usage Rules
-
-### Logo Versions
-| Version | Use Case |
-|---------|----------|
-| Primary (Dark BG) | Dark backgrounds, primary applications |
-| Primary (Light BG) | Light backgrounds, print materials |
-| Icon Only (Gold) | Favicons, app icons, small applications |
-| Icon Only (White) | Dark backgrounds, monochrome needs |
-
-### Minimum Size
-- **Digital:** 120px width minimum
-- **Print:** 1 inch (25mm) width minimum
-
-### Logo Don'ts
-- Do not stretch or distort
-- Do not change colors outside approved versions
-- Do not add effects (shadows, gradients, outlines)
-- Do not place on busy backgrounds
-- Do not rotate or flip
-
----
-
-## Accessibility Requirements
-
-### Color Contrast (WCAG 2.1 AA)
-| Combination | Contrast Ratio | Rating |
-|-------------|----------------|--------|
-| White on Charcoal | 16.75:1 | AAA |
-| Gold on Charcoal | 8.59:1 | AAA |
-| Warm Gray on Charcoal | 5.23:1 | AA |
-
-### Focus States
-```css
-*:focus-visible {
-  outline: 2px solid #F5A623;
-  outline-offset: 2px;
-}
-```
-
-### Touch Targets
-- Minimum 44x44px on mobile
-
----
-
-## Brand Kit Assets Location
-
-```
-/home/frater418/Lead Catalyst Brand Kit/
-├── README.md                    # Overview
-├── brand-guidelines/            # Full brand guidelines
-├── brand-story/                 # Brand narrative & taglines
-├── colors/                      # Color palette specs
-├── typography/                  # Typography system
-├── website-style-guide/         # Web implementation
-├── icons/                       # Custom icon set (PNG)
-├── email-templates/             # HTML email templates
-└── social-media/
-    ├── profile-pictures/
-    ├── cover-images/
-    ├── post-templates/
-    └── story-templates/
-```
-
----
-
-## Brand Compliance Reference
-
-**Last Updated**: January 2026 | **Status**: Fully Compliant
-
-This section provides quick reference values for brand-compliant implementations. All values are derived from the official Brand Kit and must be used exactly as specified.
-
-### Color Values (Exact Specifications)
-
-| Color Name | HEX | OKLCH | RGB | Usage |
-|------------|-----|-------|-----|-------|
-| Catalyst Gold | #F5A623 | oklch(0.78 0.15 75) | 245, 166, 35 | Primary accent, CTAs, emphasis |
-| Light Gold | #FFD93D | oklch(0.85 0.12 75) | 255, 217, 61 | Hover states, highlights |
-| Dark Gold | #C4841D | oklch(0.60 0.14 75) | 196, 132, 29 | Pressed states, depth accents |
-| Charcoal Black | #0D1117 | oklch(0.12 0.015 250) | 13, 17, 23 | Primary background |
-| Deep Charcoal | #161B22 | oklch(0.16 0.015 250) | 22, 27, 34 | Cards, elevated surfaces |
-| Pure White | #FFFFFF | oklch(0.95 0.005 250) | 255, 255, 255 | Primary text on dark |
-| Warm Gray | #8B949E | oklch(0.65 0.01 250) | 139, 148, 158 | Secondary text, borders |
-| Success Green | #22C55E | oklch(0.65 0.2 145) | 34, 197, 94 | Success states |
-
-### Letter Spacing Values
-
-| Element | Letter Spacing | CSS Class | Usage |
-|---------|----------------|-----------|-------|
-| Display Headlines | -0.02em | `.tracking-display` | Hero text, large displays |
-| Headlines (H1-H4) | -0.01em | `.tracking-headline` | Section headlines |
-| Body Text | 0 | default | All body content |
-| Buttons | 0.02em | `.tracking-button` | All button text |
-| Labels/Badges | 0.05em | `.tracking-label` | Uppercase labels |
-| Overlines | 0.1em | `.tracking-overline` | Small overline text |
-
-### Animation Timing Standards
-
-| Type | Duration | CSS Variable | Usage |
-|------|----------|--------------|-------|
-| Micro | 150ms (0.15s) | N/A | Hover states, small UI changes |
-| Short | 200ms (0.2s) | N/A | Button presses, toggles |
-| Medium | 300ms (0.3s) | N/A | Card hovers, reveals |
-| Long | 500ms (0.5s) | N/A | Page transitions, modals |
-
-### Easing Functions (Brand-Approved)
-
-```css
-/* Use these exact values in animations */
 --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 ```
 
-**Implementation:**
-```css
-/* Correct */
-transition: all 0.3s var(--ease-out);
-animation: fadeUp 0.6s var(--ease-out) forwards;
-
-/* Incorrect */
-transition: all 0.3s ease-out; /* Do not use generic ease-out */
-```
-
-### Gradient Definitions
-
-```css
-/* Hero Background Gradient (135deg, not 180deg!) */
-background: linear-gradient(135deg, #0D1117 0%, #161B22 50%, #1C2128 100%);
-
-/* Gold Accent Gradient */
-background: linear-gradient(135deg, #F5A623 0%, #FFD93D 100%);
-
-/* Card Gradient */
-background: linear-gradient(180deg, #161B22 0%, #0D1117 100%);
-
-/* Text Gradient Gold */
-background: linear-gradient(135deg,
-  oklch(0.85 0.12 75),
-  oklch(0.78 0.15 75),
-  oklch(0.60 0.14 75)
-);
-```
-
-### Border & Shadow Specifications
-
-```css
-/* Standard Border */
-border: 1px solid rgba(139, 148, 158, 0.2);
-
-/* Gold Border */
-border: 1px solid rgba(245, 166, 35, 0.3);
-
-/* Gold Shadow Effect */
-box-shadow:
-  0 0 0 1px oklch(0.78 0.15 75 / 0.2),
-  0 4px 24px 0 oklch(0.78 0.15 75 / 0.25),
-  0 12px 48px -8px oklch(0.78 0.15 75 / 0.3);
-```
-
 ---
 
-## Brand Compliance Checkpoints
+# Brand Compliance Checkpoints
 
-Use these checkpoints when creating or modifying any branded content:
+## Before Any Content Change
+- [ ] No forbidden buzzwords used
+- [ ] Vertical-specific language if applicable
+- [ ] Claims are quantified with metrics
+- [ ] Tagline is NOT "Growth Engine"
+- [ ] Messaging pillars represented
 
-### CSS/Styling Changes
-- [ ] All colors use exact HEX/OKLCH values from Brand Kit
+## Before Any Styling Change
+- [ ] Colors use exact HEX values from Brand Kit
 - [ ] Dark Gold is #C4841D (NOT #D4880F)
-- [ ] Hero gradient uses 135deg (NOT 180deg)
-- [ ] Animation timing uses specified durations (150ms, 200ms, 300ms, 500ms)
-- [ ] Easing functions use CSS variables (--ease-out, --ease-in-out)
-- [ ] Letter spacing applied where appropriate
+- [ ] Hero gradient uses 135deg
+- [ ] Vertical accent color is used (30%)
+- [ ] Section backgrounds vary
 
-### Component Development
-- [ ] Buttons use Catalyst Gold (#F5A623) with Dark Gold hover (#C4841D)
-- [ ] Border radius: 8px (buttons), 16px (cards)
-- [ ] Typography uses Playfair Display (headlines) + Inter (body)
-- [ ] Italic emphasis in gold for key headline words
-- [ ] Touch targets minimum 44x44px on mobile
-
-### Color Usage Validation
-- [ ] Background colors are dark-first (Charcoal Black #0D1117)
-- [ ] Gold accent used sparingly (maximum 10% of surface area)
-- [ ] Text contrast meets WCAG 2.1 AA standards
-- [ ] Secondary text uses Warm Gray (#8B949E)
-- [ ] Borders use rgba(139, 148, 158, 0.2)
-
-### Typography Validation
-- [ ] Headlines use Playfair Display with proper letter spacing
-- [ ] Body text uses Inter font family
-- [ ] Responsive typography scales correctly
-- [ ] Emphasis words in headlines are italic + gold
+## Before Deployment
+- [ ] Run content-guardian on all pages
+- [ ] Run brand-guardian on all components
+- [ ] Run implementation-audit for final check
+- [ ] All agents report ✅ Compliant
 
 ---
 
-## When to Invoke Brand Guardian Agent
+# Key Integrations
 
-The Brand Guardian Agent (@Brand Guardian Agent) must be consulted for:
+### GoHighLevel (GHL) Modal
+- Config: `client/src/config/ghl.ts`
+- Component: `client/src/components/ui/ghl-modal.tsx`
+- Modes: form, calendar
 
-1. **CSS/Styling Modifications**
-   - Any changes to colors, fonts, spacing
-   - New utility classes or design tokens
-   - Animation or transition updates
-
-2. **New Component Creation**
-   - Before implementing new UI components
-   - When adding custom design patterns
-   - Before finalizing component APIs
-
-3. **Color/Font Changes**
-   - Any deviation from specified color values
-   - Font family or weight changes
-   - New gradient or shadow implementations
-
-4. **Content/Copy Updates**
-   - Headlines with emphasis words
-   - CTA button text
-   - Marketing copy requiring brand voice
-
-5. **Major Feature Additions**
-   - New sections or pages
-   - Custom design patterns
-   - Integration of third-party UI libraries
-
-**Workflow**: When in doubt about brand compliance, pause development and request Brand Guardian review BEFORE implementing changes. This prevents rework and ensures consistent brand execution.
+### Active Verticals
+1. **Legal/MVA**: https://legal.leadcatalyst.com
+2. **Insurance**: https://insurance.leadcatalyst.com
 
 ---
 
-## Brand Compliance Validation Commands
+# Legal Information
 
-```bash
-# Search for non-compliant Dark Gold color
-grep -r "#D4880F" client/src/
+- **Company**: Auranex, LLC (Delaware)
+- **Address**: 131 Continental Dr, Suite 305, Newark, DE 19713
+- **Contact**: privacy@auranex.ai / contact@leadcatalyst.com
+- **Phone**: +1 (754) 209-2098
 
-# Search for old gradient angle
-grep -r "180deg" client/src/index.css
+---
 
-# Verify easing functions are used
-grep -r "var(--ease-" client/src/
+# Brand Kit Assets Location
 
-# Check for direct transition timings
-grep -r "transition.*ease-out" client/src/
+```
+/home/frater418/Lead Catalyst Brand Kit/
+├── LeadCatalyst-Brand-Guidelines.md
+├── LeadCatalyst-Brand-Story.md        # Updated Version 2.0
+├── LeadCatalyst-Language-Playbook.md  # NEW
+├── LeadCatalyst-Audit-Optimierung.md  # NEW
+├── color-palette.md
+├── typography-system.md
+├── website-style-guide.md
+├── email-template-newsletter.html
+├── email-template-welcome.html
+└── icons/
 ```
 
-**Expected Results**: All searches should return zero matches after full compliance.
+---
+
+# Agent Files Location
+
+```
+/home/frater418/Lead Catalyst Brand Kit/
+├── leadcatalyst-content-guardian.md   # Content & SEO validation
+├── leadcatalyst-brand-guardian.md     # Visual brand validation
+├── visual-enhancer.md                 # Layout & design improvements
+├── leadcatalyst-developer.md          # Code implementation
+└── implementation-audit.md            # Final verification
+```
+
+---
+
+**Last Updated**: January 2026
+**Brand Story Version**: 2.0
+**Agent System Version**: 1.0

@@ -1,142 +1,174 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Shield, Zap, CheckCircle, TrendingUp, Clock } from 'lucide-react';
+import { Shield, Zap, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[oklch(0.12_0.015_250)] via-[oklch(0.15_0.015_250)] to-[oklch(0.12_0.015_250)]">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[oklch(0.78_0.15_75)] rounded-full blur-[120px]" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[oklch(0.60_0.14_75)] rounded-full blur-[150px]" />
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0D1117]">
+      {/* DUAL-ACCENT Background: Teal Radial Gradient Top Right */}
+      <div className="absolute inset-0">
+        {/* Teal Glow - Top Right */}
+        <motion.div
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.15, 0.20, 0.15]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-[#0D9488] rounded-full blur-[180px]"
+        />
+
+        {/* Gold Accent - Bottom Left */}
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.10, 0.15, 0.10]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-[#F5A623] rounded-full blur-[160px]"
+        />
+
+        {/* Decorative Grid */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `linear-gradient(rgba(13, 148, 136, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(13, 148, 136, 0.3) 1px, transparent 1px)`,
+          backgroundSize: '64px 64px'
+        }} />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex justify-center mb-6"
-          >
-            <Badge className="bg-[oklch(0.78_0.15_75)]/20 text-[oklch(0.78_0.15_75)] border-[oklch(0.78_0.15_75)]/30 px-4 py-2 text-sm font-medium">
-              Now Accepting New Partners
-            </Badge>
-          </motion.div>
+        {/* Split Layout: Text Left (60%), Stats Right (40%) */}
+        <div className="grid lg:grid-cols-5 gap-12 items-center max-w-7xl mx-auto">
+          {/* Left Column: Text + CTAs */}
+          <div className="lg:col-span-3">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="flex justify-start mb-6"
+            >
+              <Badge className="bg-[#0D9488]/20 text-[#0D9488] border-[#0D9488]/30 px-4 py-2 text-sm font-medium">
+                Now Accepting New Partners
+              </Badge>
+            </motion.div>
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold text-center text-white mb-6 leading-tight tracking-headline"
-          >
-            Carrier-Grade Insurance Leads —{' '}
-            <span className="italic text-[oklch(0.78_0.15_75)]">Pre-Qualified</span> for Results
-          </motion.h1>
+            {/* Headline: 56-64px (text-5xl lg:text-6xl) */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-[1.1] tracking-headline"
+            >
+              Carrier-Grade Insurance Leads —{' '}
+              <span className="italic text-[#F5A623]">Pre-Qualified</span> for Results
+            </motion.h1>
 
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-white/70 text-center mb-10 max-w-3xl mx-auto leading-relaxed"
-          >
-            High-intent life and annuity prospects delivered with underwriting-fit scoring, TCPA compliance, and real-time CRM integration. For carriers, distributors, and agents.
-          </motion.p>
+            {/* Subheadline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg sm:text-xl text-white/70 mb-8 leading-relaxed"
+            >
+              High-intent life and annuity prospects delivered with underwriting-fit scoring, TCPA compliance, and real-time CRM integration. For carriers, distributors, and agents.
+            </motion.p>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
-          >
-            <Link href="/insurance/for-carriers">
+            {/* DUAL CTAs: Gold + Teal Outline */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row items-start gap-4 mb-10"
+            >
               <Button
+                asChild
                 size="lg"
-                className="bg-[oklch(0.78_0.15_75)] hover:bg-[oklch(0.85_0.12_75)] text-[oklch(0.12_0.015_250)] font-semibold px-8 py-6 text-base"
+                className="bg-[#F5A623] hover:bg-[#FFD93D] text-[#0D1117] font-semibold px-8 py-6 text-base"
               >
-                For Carriers →
+                <Link href="/insurance/for-carriers">For Carriers →</Link>
               </Button>
-            </Link>
-            <Link href="/insurance/for-agents">
               <Button
+                asChild
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/5 font-semibold px-8 py-6 text-base"
+                className="border-[#0D9488] text-[#0D9488] hover:bg-[#0D9488]/10 font-semibold px-8 py-6 text-base"
               >
-                For Agents →
+                <Link href="/insurance/for-agents">For Agents →</Link>
               </Button>
-            </Link>
-          </motion.div>
+            </motion.div>
 
-          {/* Trust Badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap items-center justify-center gap-6 mb-16"
-          >
-            <div className="flex items-center gap-2 text-sm text-white/60">
-              <Shield size={18} className="text-[oklch(0.78_0.15_75)]" />
-              TCPA Compliant
-            </div>
-            <div className="flex items-center gap-2 text-sm text-white/60">
-              <Zap size={18} className="text-[oklch(0.78_0.15_75)]" />
-              Real-Time Delivery
-            </div>
-            <div className="flex items-center gap-2 text-sm text-white/60">
-              <CheckCircle size={18} className="text-[oklch(0.78_0.15_75)]" />
-              Quality Guaranteed
-            </div>
-          </motion.div>
+            {/* Trust Badges - More Prominent */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+            >
+              <div className="flex items-center gap-3 bg-[#161B22] px-4 py-3 rounded-lg border border-white/10">
+                <Shield size={24} className="text-[#0D9488] flex-shrink-0" />
+                <span className="text-sm text-white/80 font-medium">TCPA Compliant</span>
+              </div>
+              <div className="flex items-center gap-3 bg-[#161B22] px-4 py-3 rounded-lg border border-white/10">
+                <Zap size={24} className="text-[#F5A623] flex-shrink-0" />
+                <span className="text-sm text-white/80 font-medium">Real-Time Delivery</span>
+              </div>
+              <div className="flex items-center gap-3 bg-[#161B22] px-4 py-3 rounded-lg border border-white/10">
+                <CheckCircle size={24} className="text-[#0D9488] flex-shrink-0" />
+                <span className="text-sm text-white/80 font-medium">Quality Guaranteed</span>
+              </div>
+            </motion.div>
+          </div>
 
-          {/* Live Performance Card */}
+          {/* Right Column: Stats Box */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="bg-gradient-to-br from-[oklch(0.16_0.015_250)] to-[oklch(0.12_0.015_250)] border border-white/10 rounded-2xl p-8 max-w-3xl mx-auto backdrop-blur-xl"
+            className="lg:col-span-2 relative"
           >
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-white/80">Live Performance Metrics</span>
-            </div>
+            <div className="relative bg-gradient-to-br from-[#161B22] to-[#0D1117] border border-[#0D9488]/30 rounded-2xl p-8 backdrop-blur-xl shadow-2xl"
+              style={{
+                boxShadow: '0 0 0 1px rgba(13, 148, 136, 0.2), 0 20px 60px -10px rgba(0, 0, 0, 0.5), 0 8px 32px -8px rgba(13, 148, 136, 0.3)'
+              }}
+            >
+              {/* Decorative Teal Accent */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0D9488] via-[#F5A623] to-[#0D9488] rounded-t-2xl" />
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              <div>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-3xl font-display font-bold text-white">91</span>
-                  <span className="text-sm text-white/60">/100</span>
-                </div>
-                <div className="text-sm text-white/60">Lead Quality Score</div>
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                <span className="text-sm font-medium text-white/90">Live Performance Metrics</span>
               </div>
 
-              <div>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-3xl font-display font-bold text-[oklch(0.78_0.15_75)]">
-                    +42%
-                  </span>
+              <div className="space-y-6">
+                <div>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-5xl font-display font-bold text-[#F5A623]">91</span>
+                    <span className="text-lg text-white/60">/100</span>
+                  </div>
+                  <div className="text-sm text-white/70">Lead Quality Score</div>
                 </div>
-                <div className="text-sm text-white/60">Higher Issue Rates</div>
-              </div>
 
-              <div>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-3xl font-display font-bold text-white">3.2x</span>
+                <div>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-4xl font-display font-bold text-[#0D9488]">+42%</span>
+                  </div>
+                  <div className="text-sm text-white/70">Higher Issue Rates</div>
                 </div>
-                <div className="text-sm text-white/60">Contact-to-Quote</div>
-              </div>
 
-              <div>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-3xl font-display font-bold text-white">&lt;2h</span>
+                <div>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-4xl font-display font-bold text-white">3.2x</span>
+                  </div>
+                  <div className="text-sm text-white/70">Contact-to-Quote Ratio</div>
                 </div>
-                <div className="text-sm text-white/60">Response Time</div>
+
+                <div>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-4xl font-display font-bold text-[#0D9488]">&lt;2h</span>
+                  </div>
+                  <div className="text-sm text-white/70">Avg Response Time</div>
+                </div>
               </div>
             </div>
           </motion.div>

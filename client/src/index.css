@@ -5,13 +5,16 @@
 
 /*
  * LeadCatalyst Design System - "Refined Catalyst" Theme
- * 
+ *
  * Color Philosophy:
  * - Primary Background: Deep charcoal (#0D1117) - authority and sophistication
- * - Primary Accent: Warm gold (#F5A623) - success, value, premium quality
+ * - Primary Accent: Catalyst Gold (#F5A623) - 70% of accent usage
+ * - Secondary Accent: Shield Teal (#0D9488) - 30% of accent usage (Insurance vertical)
  * - Text: White/light gray for readability on dark backgrounds
  * - Success: Emerald green (#22C55E) for positive indicators
- * 
+ *
+ * Dual-Accent System: Gold (70%) + Teal (30%) - BOTH must be actively used!
+ *
  * Typography: Playfair Display (serif) for headlines, Inter for body
  */
 
@@ -53,12 +56,21 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   
-  /* LeadCatalyst Custom Colors */
-  --color-gold: oklch(0.78 0.15 75);
-  --color-gold-light: oklch(0.85 0.12 75);
-  --color-gold-dark: oklch(0.60 0.14 75); /* #C4841D */
+  /* LeadCatalyst Custom Colors - Primary Accent */
+  --color-gold: oklch(0.78 0.15 75);        /* #F5A623 - Primary (70%) */
+  --color-gold-light: oklch(0.85 0.12 75);  /* Hover state */
+  --color-gold-dark: oklch(0.60 0.14 75);   /* #C4841D - Pressed state */
+
+  /* LeadCatalyst Custom Colors - Secondary Accent (Insurance Vertical) */
+  --color-teal: oklch(0.60 0.13 175);       /* #0D9488 - Secondary (30%) */
+  --color-teal-light: oklch(0.70 0.12 175); /* Hover state */
+  --color-teal-dark: oklch(0.50 0.12 175);  /* Pressed state */
+
+  /* Background Colors */
   --color-navy: oklch(0.15 0.02 250);
   --color-navy-light: oklch(0.20 0.02 250);
+
+  /* Functional Colors */
   --color-success: oklch(0.65 0.2 145);
 
   /* Font families */
@@ -219,20 +231,45 @@
     background: linear-gradient(145deg, oklch(0.18 0.015 250) 0%, oklch(0.14 0.015 250) 100%);
   }
   
+  /* Gold (Primary Accent) Utilities */
   .border-gold {
     border-color: oklch(0.78 0.15 75 / 0.3);
   }
-  
+
   .border-gold-strong {
     border-color: oklch(0.78 0.15 75);
   }
-  
+
   .glow-gold {
     box-shadow: 0 0 20px oklch(0.78 0.15 75 / 0.3), 0 0 40px oklch(0.78 0.15 75 / 0.1);
   }
-  
+
   .glow-gold-sm {
     box-shadow: 0 0 10px oklch(0.78 0.15 75 / 0.2);
+  }
+
+  /* Teal (Secondary Accent - Insurance) Utilities */
+  .border-teal {
+    border-color: oklch(0.60 0.13 175 / 0.3);
+  }
+
+  .border-teal-strong {
+    border-color: oklch(0.60 0.13 175);
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 20px oklch(0.60 0.13 175 / 0.3), 0 0 40px oklch(0.60 0.13 175 / 0.1);
+  }
+
+  .glow-teal-sm {
+    box-shadow: 0 0 10px oklch(0.60 0.13 175 / 0.2);
+  }
+
+  .text-gradient-teal {
+    background: linear-gradient(135deg, oklch(0.70 0.12 175), oklch(0.60 0.13 175), oklch(0.50 0.12 175));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   /* Section divider with diagonal cut */
@@ -279,12 +316,20 @@
     letter-spacing: 0.1em; /* Overlines */
   }
 
-  /* Premium Shadow Effects */
+  /* Premium Shadow Effects - Gold */
   .shadow-gold {
     box-shadow:
       0 0 0 1px oklch(0.78 0.15 75 / 0.2),
       0 4px 24px 0 oklch(0.78 0.15 75 / 0.25),
       0 12px 48px -8px oklch(0.78 0.15 75 / 0.3);
+  }
+
+  /* Premium Shadow Effects - Teal (Insurance) */
+  .shadow-teal {
+    box-shadow:
+      0 0 0 1px oklch(0.60 0.13 175 / 0.2),
+      0 4px 24px 0 oklch(0.60 0.13 175 / 0.25),
+      0 12px 48px -8px oklch(0.60 0.13 175 / 0.3);
   }
 
   .shadow-elevated {

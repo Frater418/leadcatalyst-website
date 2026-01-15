@@ -78,25 +78,24 @@ export function AboutSection() {
             </div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Your Strategic Partner for{" "}
-              <span className="font-display italic text-[#F5A623]">Sustainable Growth</span>
+              Vertical-First Lead Generation for{" "}
+              <span className="font-display italic text-[#F5A623]">Regulated Industries</span>
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              LeadCatalyst is a strategic lead generation and performance marketing agency 
-              founded by industry experts with decades of combined experience. We specialize 
-              in helping businesses across multiple verticals acquire high-quality leads 
-              and scale their operations through data-driven digital strategies.
+              LeadCatalyst was built by people who understand regulated industries.
+              We've worked with law firms navigating GDPR. Insurance carriers managing
+              AML requirements. Financial advisors meeting FCA standards.
             </p>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              As a multi-vertical holding company, we bring specialized expertise to each 
-              industry we serve — from legal and insurance to financial services and real 
-              estate. Our approach combines deep market knowledge with cutting-edge 
-              marketing technology to deliver results that matter.
+              Every vertical has unique compliance requirements and qualification criteria.
+              Generic lead generation doesn't work for regulated industries.
+              That's why we built LeadCatalyst—vertical-specific lead qualification
+              for industries where compliance isn't optional.
             </p>
 
-            {/* Mission Statement */}
+            {/* What Vertical-First Means */}
             <motion.div
               className="p-6 rounded-xl bg-gradient-card border border-border hover:border-[#F5A623]/30 transition-all duration-300 relative overflow-hidden group"
               whileHover={{ scale: 1.02 }}
@@ -105,10 +104,11 @@ export function AboutSection() {
               <motion.div
                 className="absolute inset-0 bg-[#F5A623]/5 opacity-0 group-hover:opacity-100 transition-opacity"
               />
-              <h3 className="text-lg font-semibold text-foreground mb-2 relative z-10">Our Mission</h3>
-              <p className="text-muted-foreground italic relative z-10">
-                "To empower businesses with qualified leads and strategic marketing
-                solutions that drive predictable, scalable growth."
+              <h3 className="text-lg font-semibold text-foreground mb-2 relative z-10">What "Vertical-First" Means</h3>
+              <p className="text-muted-foreground relative z-10">
+                A qualified lead for a law firm looks completely different than a qualified
+                lead for an insurance carrier. One needs practice-area match. The other needs
+                AML verification. We don't use one-size-fits-all criteria.
               </p>
             </motion.div>
           </motion.div>

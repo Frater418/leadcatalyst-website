@@ -13,52 +13,58 @@ import { Scale, Shield, Building2, Landmark, Home, Briefcase } from "lucide-reac
 
 const industries = [
   {
-    icon: Shield,
-    title: "Insurance",
-    subtitle: "Life Insurance Leads",
-    description: "Carrier-grade life insurance leads pre-qualified for underwriting fit, affordability, and verified purchase intent.",
-    link: "/insurance",
-    active: true,
-  },
-  {
     icon: Scale,
     title: "Legal",
-    subtitle: "Personal Injury & MVA",
-    description: "High-value case leads for personal injury law firms with verified injury and medical treatment confirmation.",
+    subtitle: "Practice-Area Match. GDPR-Compliant.",
+    description: "Qualified legal leads with practice-area verification and decision-maker authority confirmation.",
     link: "/legal",
-    active: false,
+    active: true,
+    color: "#2563EB", // Justice Blue
+  },
+  {
+    icon: Shield,
+    title: "Insurance",
+    subtitle: "AML-Verified. Carrier-Grade Qualification.",
+    description: "Pre-qualified insurance leads with compliance screening and verified purchase intent.",
+    link: "/insurance",
+    active: true,
+    color: "#0D9488", // Shield Teal
   },
   {
     icon: Landmark,
     title: "Financial Services",
-    subtitle: "Lending & Credit",
-    description: "Pre-qualified financial product leads for lenders, credit services, and financial advisors.",
+    subtitle: "FCA-Compliant. HNW-Qualified.",
+    description: "Regulatory-aware prospecting for financial advisors, lenders, and wealth services.",
     link: "/financial",
     active: false,
-  },
-  {
-    icon: Home,
-    title: "Real Estate",
-    subtitle: "Residential & Commercial",
-    description: "Motivated buyer and seller leads for real estate agents, brokers, and investors.",
-    link: "/realestate",
-    active: false,
+    color: "#059669", // Prosperity Green
   },
   {
     icon: Building2,
     title: "Wealth Management",
-    subtitle: "Investment & Advisory",
-    description: "High-net-worth individual leads for wealth managers and financial planners.",
+    subtitle: "Ultra-Premium Targeting. Relationship-Ready.",
+    description: "Wealth-verified targeting for private banking, family offices, and HNW advisory.",
     link: "/wealth",
     active: false,
+    color: "#059669", // Prosperity Green
+  },
+  {
+    icon: Home,
+    title: "Real Estate",
+    subtitle: "Active Buying Intent. Decision-Timeline.",
+    description: "Pipeline-consistent leads with verified buying intent and decision timelines.",
+    link: "/realestate",
+    active: false,
+    color: "#D97706", // Property Amber
   },
   {
     icon: Briefcase,
     title: "B2B Services",
-    subtitle: "Professional Services",
-    description: "Decision-maker leads for B2B service providers and enterprise solutions.",
+    subtitle: "Decision-Maker Access. Enterprise-Ready.",
+    description: "Qualified B2B leads with authority verification and budget confirmation.",
     link: "/b2b",
     active: false,
+    color: "#F5A623", // Gold
   },
 ];
 
@@ -92,12 +98,12 @@ export function IndustriesSection() {
             <span className="text-sm font-medium text-[#F5A623]">Industries We Serve</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Multi-Vertical{" "}
-            <span className="font-display italic text-[#F5A623]">Expertise</span>
+            We Specialize in{" "}
+            <span className="font-display italic text-[#F5A623]">Regulated Industries</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            As a holding company, we bring specialized knowledge and proven strategies 
-            to each industry vertical we serve.
+            Each vertical has unique compliance requirements and qualification criteria.
+            We've built vertical-specific frameworks for every industry we serve.
           </p>
         </motion.div>
 
@@ -142,31 +148,48 @@ export function IndustriesSection() {
 }
 
 function IndustryCard({ industry, isInView }: { industry: typeof industries[0]; isInView: boolean }) {
+  const verticalColor = industry.color;
+
   return (
     <div
       className={`h-full p-6 rounded-xl border transition-all duration-300 group relative overflow-hidden ${
         industry.active
-          ? "bg-gradient-card border-[#F5A623]/30 hover:border-[#F5A623] hover:shadow-xl hover:shadow-[#F5A623]/10 cursor-pointer"
+          ? "bg-gradient-card cursor-pointer hover:shadow-xl"
           : "bg-card/50 border-border hover:border-border/80"
       }`}
+      style={{
+        borderColor: industry.active ? `${verticalColor}30` : undefined,
+        ["--vertical-color" as string]: verticalColor,
+      }}
     >
-      {/* Hover Glow for Active */}
+      {/* Top Accent Bar */}
       {industry.active && (
-        <div className="absolute inset-0 bg-[#F5A623]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div
+          className="absolute top-0 left-0 right-0 h-1 transition-all duration-300 group-hover:h-1.5"
+          style={{ backgroundColor: verticalColor }}
+        />
       )}
 
-      <div className="flex items-start justify-between mb-4 relative z-10">
+      {/* Hover Glow for Active */}
+      {industry.active && (
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{ backgroundColor: `${verticalColor}08` }}
+        />
+      )}
+
+      <div className="flex items-start justify-between mb-4 relative z-10 mt-1">
         <motion.div
-          className={`w-12 h-12 rounded-lg flex items-center justify-center transition-colors ${
-            industry.active ? "bg-[#F5A623]/20 group-hover:bg-[#F5A623]/30" : "bg-muted"
-          }`}
+          className="w-12 h-12 rounded-lg flex items-center justify-center transition-colors"
+          style={{
+            backgroundColor: industry.active ? `${verticalColor}20` : undefined,
+          }}
           whileHover={industry.active ? { scale: 1.1, rotate: [0, -5, 5, 0] } : {}}
           transition={{ duration: 0.3 }}
         >
           <industry.icon
-            className={`w-6 h-6 ${
-              industry.active ? "text-[#F5A623]" : "text-muted-foreground"
-            }`}
+            className={`w-6 h-6 ${!industry.active ? "text-muted-foreground" : ""}`}
+            style={{ color: industry.active ? verticalColor : undefined }}
           />
         </motion.div>
         {industry.active && (
@@ -185,10 +208,18 @@ function IndustryCard({ industry, isInView }: { industry: typeof industries[0]; 
         )}
       </div>
 
-      <h3 className={`text-lg font-bold mb-1 relative z-10 transition-colors ${industry.active ? "text-foreground group-hover:text-[#F5A623]" : "text-muted-foreground"}`}>
-        {industry.title}
+      <h3
+        className={`text-lg font-bold mb-1 relative z-10 transition-colors ${industry.active ? "text-foreground" : "text-muted-foreground"}`}
+        style={{ ["--hover-color" as string]: verticalColor }}
+      >
+        <span className="group-hover:text-[var(--vertical-color)] transition-colors">
+          {industry.title}
+        </span>
       </h3>
-      <p className={`text-sm mb-3 relative z-10 ${industry.active ? "text-[#F5A623]" : "text-muted-foreground/70"}`}>
+      <p
+        className={`text-sm mb-3 relative z-10 ${!industry.active ? "text-muted-foreground/70" : ""}`}
+        style={{ color: industry.active ? verticalColor : undefined }}
+      >
         {industry.subtitle}
       </p>
       <p className={`text-sm leading-relaxed relative z-10 ${industry.active ? "text-muted-foreground" : "text-muted-foreground/60"}`}>
@@ -197,8 +228,11 @@ function IndustryCard({ industry, isInView }: { industry: typeof industries[0]; 
 
       {industry.active && industry.link && (
         <div className="mt-4 pt-4 border-t border-border relative z-10">
-          <span className="text-sm text-[#F5A623] font-medium group-hover:translate-x-1 inline-block transition-transform">
-            Visit Platform →
+          <span
+            className="text-sm font-medium group-hover:translate-x-1 inline-block transition-transform"
+            style={{ color: verticalColor }}
+          >
+            Explore {industry.title} Lead Generation →
           </span>
         </div>
       )}

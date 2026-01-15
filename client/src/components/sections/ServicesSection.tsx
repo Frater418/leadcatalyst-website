@@ -12,24 +12,24 @@ import { ArrowRight } from "lucide-react";
 
 const services = [
   {
-    title: "Lead Generation",
+    title: "Vertical-First Qualification",
     description:
-      "Qualified lead acquisition through multi-channel campaigns. We deliver verified, exclusive leads that convert into real business opportunities.",
-    features: ["Exclusive Leads", "Multi-Channel Acquisition", "Quality Verification", "CRM Integration"],
+      "Every industry has unique criteria. We qualify prospects based on YOUR vertical's requirements—not generic demographic matching.",
+    features: ["Vertical-Specific Criteria", "Industry Expertise", "Custom Qualification", "Conversion Focus"],
     image: "/images/services-leadgen.webp",
   },
   {
-    title: "Performance Marketing",
+    title: "Compliance-Aware Prospecting",
     description:
-      "ROI-focused paid advertising management across all major platforms. Data-driven optimization ensures maximum return on your marketing investment.",
-    features: ["Paid Media Management", "A/B Testing", "Conversion Optimization", "Real-Time Analytics"],
+      "GDPR for Legal. AML for Insurance. FCA for Financial Services. Compliance is built into every step, not added as an afterthought.",
+    features: ["GDPR Compliant", "AML Verification", "FCA Standards", "Audit Trail"],
     image: "/images/services-performance.webp",
   },
   {
-    title: "Digital Strategy",
+    title: "Transparent Reporting",
     description:
-      "Comprehensive market analysis and campaign planning. We develop customized growth strategies aligned with your business objectives.",
-    features: ["Market Analysis", "Campaign Planning", "Competitive Research", "Growth Roadmaps"],
+      "See exactly how we qualify. Which criteria. Which filters. Which results. No black box—full transparency into your lead qualification process.",
+    features: ["Full Transparency", "Qualification Criteria", "Real-Time Reporting", "Process Documentation"],
     image: "/images/services-strategy.webp",
   },
 ];
@@ -57,7 +57,7 @@ export function ServicesSection() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-1/4 left-0 w-80 h-80 bg-[#3B82F6]/5 rounded-full blur-3xl"
+        className="absolute bottom-1/4 left-0 w-80 h-80 bg-[#22C55E]/5 rounded-full blur-3xl"
         animate={{ scale: [1.15, 1, 1.15], opacity: [0.2, 0.35, 0.2] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -74,12 +74,12 @@ export function ServicesSection() {
             <span className="text-sm font-medium text-[#F5A623]">Our Services</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Solutions That{" "}
-            <span className="font-display italic text-[#F5A623]">Drive Results</span>
+            Vertical-Specific{" "}
+            <span className="font-display italic text-[#F5A623]">Lead Qualification</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Comprehensive digital marketing services designed to accelerate your growth 
-            and maximize your return on investment.
+            Every industry has unique qualification criteria. We build compliance-aware
+            prospecting systems tailored to your vertical's requirements.
           </p>
         </motion.div>
 
